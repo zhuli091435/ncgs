@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_USER_BMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_USER_B">
+    <id column="ID" jdbcType="VARCHAR" property="ID" />
+    <result column="USER" jdbcType="VARCHAR" property="USER" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="PASSWORD" />
+    <result column="NAME" jdbcType="VARCHAR" property="NAME" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <result column="PHONE" jdbcType="VARCHAR" property="PHONE" />
+    <result column="TEL" jdbcType="VARCHAR" property="TEL" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="EMAIL" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="NT" jdbcType="VARCHAR" property="NT" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from gs_user_b
+    where ID = #{ID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_USER_B">
+    insert into gs_user_b (ID, USER, PASSWORD, 
+      NAME, AD_CD, TYPE, PHONE, 
+      TEL, EMAIL, TS, NT, 
+      ISSEND)
+    values (#{ID,jdbcType=VARCHAR}, #{USER,jdbcType=VARCHAR}, #{PASSWORD,jdbcType=VARCHAR}, 
+      #{NAME,jdbcType=VARCHAR}, #{AD_CD,jdbcType=CHAR}, #{TYPE,jdbcType=CHAR}, #{PHONE,jdbcType=VARCHAR}, 
+      #{TEL,jdbcType=VARCHAR}, #{EMAIL,jdbcType=VARCHAR}, #{TS,jdbcType=TIMESTAMP}, #{NT,jdbcType=VARCHAR}, 
+      #{ISSEND,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_USER_B">
+    update gs_user_b
+    set USER = #{USER,jdbcType=VARCHAR},
+      PASSWORD = #{PASSWORD,jdbcType=VARCHAR},
+      NAME = #{NAME,jdbcType=VARCHAR},
+      AD_CD = #{AD_CD,jdbcType=CHAR},
+      TYPE = #{TYPE,jdbcType=CHAR},
+      PHONE = #{PHONE,jdbcType=VARCHAR},
+      TEL = #{TEL,jdbcType=VARCHAR},
+      EMAIL = #{EMAIL,jdbcType=VARCHAR},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      NT = #{NT,jdbcType=VARCHAR},
+      ISSEND = #{ISSEND,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, USER, PASSWORD, NAME, AD_CD, TYPE, PHONE, TEL, EMAIL, TS, NT, ISSEND
+    from gs_user_b
+    where ID = #{ID,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, USER, PASSWORD, NAME, AD_CD, TYPE, PHONE, TEL, EMAIL, TS, NT, ISSEND
+    from gs_user_b
+  </select>
+</mapper>

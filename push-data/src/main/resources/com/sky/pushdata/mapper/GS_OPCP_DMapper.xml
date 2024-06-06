@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_OPCP_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_OPCP_D">
+    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <result column="ST_TP" jdbcType="CHAR" property="ST_TP" />
+    <result column="BHC" jdbcType="VARCHAR" property="BHC" />
+    <result column="DDT" jdbcType="VARCHAR" property="DDT" />
+    <result column="ROGOR" jdbcType="VARCHAR" property="ROGOR" />
+    <result column="DLL" jdbcType="VARCHAR" property="DLL" />
+    <result column="JJDLL" jdbcType="VARCHAR" property="JJDLL" />
+    <result column="MLLL" jdbcType="VARCHAR" property="MLLL" />
+    <result column="DDV" jdbcType="VARCHAR" property="DDV" />
+    <result column="DBCH" jdbcType="VARCHAR" property="DBCH" />
+    <result column="ATLJ" jdbcType="VARCHAR" property="ATLJ" />
+    <result column="BJQ" jdbcType="VARCHAR" property="BJQ" />
+    <result column="JNW" jdbcType="VARCHAR" property="JNW" />
+    <result column="XQJZH" jdbcType="VARCHAR" property="XQJZH" />
+    <result column="NXL" jdbcType="VARCHAR" property="NXL" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="TEST_COM_TM" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+    <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.util.Date">
+    delete from gs_opcp_d
+    where SPT = #{SPT,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_OPCP_D">
+    insert into gs_opcp_d (SPT, TW_CD, AD_CD, 
+      TYPE, ST_TP, BHC, DDT, 
+      ROGOR, DLL, JJDLL, 
+      MLLL, DDV, DBCH, ATLJ, 
+      BJQ, JNW, XQJZH, NXL, 
+      TEST_COM_TM, TS, ISSEND, 
+      NT)
+    values (#{SPT,jdbcType=TIMESTAMP}, #{TW_CD,jdbcType=VARCHAR}, #{AD_CD,jdbcType=CHAR}, 
+      #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{BHC,jdbcType=VARCHAR}, #{DDT,jdbcType=VARCHAR}, 
+      #{ROGOR,jdbcType=VARCHAR}, #{DLL,jdbcType=VARCHAR}, #{JJDLL,jdbcType=VARCHAR}, 
+      #{MLLL,jdbcType=VARCHAR}, #{DDV,jdbcType=VARCHAR}, #{DBCH,jdbcType=VARCHAR}, #{ATLJ,jdbcType=VARCHAR}, 
+      #{BJQ,jdbcType=VARCHAR}, #{JNW,jdbcType=VARCHAR}, #{XQJZH,jdbcType=VARCHAR}, #{NXL,jdbcType=VARCHAR}, 
+      #{TEST_COM_TM,jdbcType=TIMESTAMP}, #{TS,jdbcType=TIMESTAMP}, #{ISSEND,jdbcType=INTEGER}, 
+      #{NT,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_OPCP_D">
+    update gs_opcp_d
+    set TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      AD_CD = #{AD_CD,jdbcType=CHAR},
+      TYPE = #{TYPE,jdbcType=CHAR},
+      ST_TP = #{ST_TP,jdbcType=CHAR},
+      BHC = #{BHC,jdbcType=VARCHAR},
+      DDT = #{DDT,jdbcType=VARCHAR},
+      ROGOR = #{ROGOR,jdbcType=VARCHAR},
+      DLL = #{DLL,jdbcType=VARCHAR},
+      JJDLL = #{JJDLL,jdbcType=VARCHAR},
+      MLLL = #{MLLL,jdbcType=VARCHAR},
+      DDV = #{DDV,jdbcType=VARCHAR},
+      DBCH = #{DBCH,jdbcType=VARCHAR},
+      ATLJ = #{ATLJ,jdbcType=VARCHAR},
+      BJQ = #{BJQ,jdbcType=VARCHAR},
+      JNW = #{JNW,jdbcType=VARCHAR},
+      XQJZH = #{XQJZH,jdbcType=VARCHAR},
+      NXL = #{NXL,jdbcType=VARCHAR},
+      TEST_COM_TM = #{TEST_COM_TM,jdbcType=TIMESTAMP},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      ISSEND = #{ISSEND,jdbcType=INTEGER},
+      NT = #{NT,jdbcType=LONGVARCHAR}
+    where SPT = #{SPT,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.util.Date" resultMap="BaseResultMap">
+    select SPT, TW_CD, AD_CD, TYPE, ST_TP, BHC, DDT, ROGOR, DLL, JJDLL, MLLL, DDV, DBCH, 
+    ATLJ, BJQ, JNW, XQJZH, NXL, TEST_COM_TM, TS, ISSEND, NT
+    from gs_opcp_d
+    where SPT = #{SPT,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SPT, TW_CD, AD_CD, TYPE, ST_TP, BHC, DDT, ROGOR, DLL, JJDLL, MLLL, DDV, DBCH, 
+    ATLJ, BJQ, JNW, XQJZH, NXL, TEST_COM_TM, TS, ISSEND, NT
+    from gs_opcp_d
+  </select>
+</mapper>

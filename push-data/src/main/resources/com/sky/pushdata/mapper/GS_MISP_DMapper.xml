@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_MISP_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_MISP_D">
+    <id column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <result column="ST_TP" jdbcType="CHAR" property="ST_TP" />
+    <result column="CA" jdbcType="VARCHAR" property="CA" />
+    <result column="MG" jdbcType="VARCHAR" property="MG" />
+    <result column="K" jdbcType="VARCHAR" property="k" />
+    <result column="NA" jdbcType="VARCHAR" property="NA" />
+    <result column="KNA" jdbcType="VARCHAR" property="KNA" />
+    <result column="CR6" jdbcType="VARCHAR" property="CR6" />
+    <result column="TCR" jdbcType="VARCHAR" property="TCR" />
+    <result column="HG" jdbcType="VARCHAR" property="HG" />
+    <result column="CU" jdbcType="VARCHAR" property="CU" />
+    <result column="PB" jdbcType="VARCHAR" property="PB" />
+    <result column="CD" jdbcType="VARCHAR" property="CD" />
+    <result column="ZN" jdbcType="VARCHAR" property="ZN" />
+    <result column="FE" jdbcType="VARCHAR" property="FE" />
+    <result column="MN" jdbcType="VARCHAR" property="MN" />
+    <result column="AG" jdbcType="VARCHAR" property="AG" />
+    <result column="NI" jdbcType="VARCHAR" property="NI" />
+    <result column="MO" jdbcType="VARCHAR" property="MO" />
+    <result column="CO" jdbcType="VARCHAR" property="CO" />
+    <result column="BE" jdbcType="VARCHAR" property="BE" />
+    <result column="SB" jdbcType="VARCHAR" property="SB" />
+    <result column="BA" jdbcType="VARCHAR" property="BA" />
+    <result column="V" jdbcType="VARCHAR" property="v" />
+    <result column="TI" jdbcType="VARCHAR" property="TI" />
+    <result column="TL" jdbcType="VARCHAR" property="TL" />
+    <result column="AL" jdbcType="VARCHAR" property="AL" />
+    <result column="THRD" jdbcType="VARCHAR" property="THRD" />
+    <result column="ARS" jdbcType="VARCHAR" property="ARS" />
+    <result column="SE" jdbcType="VARCHAR" property="SE" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="TEST_COM_TM" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+    <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from gs_misp_d
+    where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_MISP_D">
+    insert into gs_misp_d (TW_CD, SPT, AD_CD, 
+      TYPE, ST_TP, CA, MG, 
+      K, NA, KNA, CR6, 
+      TCR, HG, CU, PB, 
+      CD, ZN, FE, MN, 
+      AG, NI, MO, CO, 
+      BE, SB, BA, V, 
+      TI, TL, AL, THRD, 
+      ARS, SE, TEST_COM_TM, 
+      TS, ISSEND, NT
+      )
+    values (#{TW_CD,jdbcType=VARCHAR}, #{SPT,jdbcType=TIMESTAMP}, #{AD_CD,jdbcType=CHAR}, 
+      #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{CA,jdbcType=VARCHAR}, #{MG,jdbcType=VARCHAR}, 
+      #{k,jdbcType=VARCHAR}, #{NA,jdbcType=VARCHAR}, #{KNA,jdbcType=VARCHAR}, #{CR6,jdbcType=VARCHAR}, 
+      #{TCR,jdbcType=VARCHAR}, #{HG,jdbcType=VARCHAR}, #{CU,jdbcType=VARCHAR}, #{PB,jdbcType=VARCHAR}, 
+      #{CD,jdbcType=VARCHAR}, #{ZN,jdbcType=VARCHAR}, #{FE,jdbcType=VARCHAR}, #{MN,jdbcType=VARCHAR}, 
+      #{AG,jdbcType=VARCHAR}, #{NI,jdbcType=VARCHAR}, #{MO,jdbcType=VARCHAR}, #{CO,jdbcType=VARCHAR}, 
+      #{BE,jdbcType=VARCHAR}, #{SB,jdbcType=VARCHAR}, #{BA,jdbcType=VARCHAR}, #{v,jdbcType=VARCHAR}, 
+      #{TI,jdbcType=VARCHAR}, #{TL,jdbcType=VARCHAR}, #{AL,jdbcType=VARCHAR}, #{THRD,jdbcType=VARCHAR}, 
+      #{ARS,jdbcType=VARCHAR}, #{SE,jdbcType=VARCHAR}, #{TEST_COM_TM,jdbcType=TIMESTAMP}, 
+      #{TS,jdbcType=TIMESTAMP}, #{ISSEND,jdbcType=INTEGER}, #{NT,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_MISP_D">
+    update gs_misp_d
+    set AD_CD = #{AD_CD,jdbcType=CHAR},
+      TYPE = #{TYPE,jdbcType=CHAR},
+      ST_TP = #{ST_TP,jdbcType=CHAR},
+      CA = #{CA,jdbcType=VARCHAR},
+      MG = #{MG,jdbcType=VARCHAR},
+      K = #{k,jdbcType=VARCHAR},
+      NA = #{NA,jdbcType=VARCHAR},
+      KNA = #{KNA,jdbcType=VARCHAR},
+      CR6 = #{CR6,jdbcType=VARCHAR},
+      TCR = #{TCR,jdbcType=VARCHAR},
+      HG = #{HG,jdbcType=VARCHAR},
+      CU = #{CU,jdbcType=VARCHAR},
+      PB = #{PB,jdbcType=VARCHAR},
+      CD = #{CD,jdbcType=VARCHAR},
+      ZN = #{ZN,jdbcType=VARCHAR},
+      FE = #{FE,jdbcType=VARCHAR},
+      MN = #{MN,jdbcType=VARCHAR},
+      AG = #{AG,jdbcType=VARCHAR},
+      NI = #{NI,jdbcType=VARCHAR},
+      MO = #{MO,jdbcType=VARCHAR},
+      CO = #{CO,jdbcType=VARCHAR},
+      BE = #{BE,jdbcType=VARCHAR},
+      SB = #{SB,jdbcType=VARCHAR},
+      BA = #{BA,jdbcType=VARCHAR},
+      V = #{v,jdbcType=VARCHAR},
+      TI = #{TI,jdbcType=VARCHAR},
+      TL = #{TL,jdbcType=VARCHAR},
+      AL = #{AL,jdbcType=VARCHAR},
+      THRD = #{THRD,jdbcType=VARCHAR},
+      ARS = #{ARS,jdbcType=VARCHAR},
+      SE = #{SE,jdbcType=VARCHAR},
+      TEST_COM_TM = #{TEST_COM_TM,jdbcType=TIMESTAMP},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      ISSEND = #{ISSEND,jdbcType=INTEGER},
+      NT = #{NT,jdbcType=LONGVARCHAR}
+    where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select TW_CD, SPT, AD_CD, TYPE, ST_TP, CA, MG, K, NA, KNA, CR6, TCR, HG, CU, PB, 
+    CD, ZN, FE, MN, AG, NI, MO, CO, BE, SB, BA, V, TI, TL, AL, THRD, ARS, SE, TEST_COM_TM, 
+    TS, ISSEND, NT
+    from gs_misp_d
+    where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select TW_CD, SPT, AD_CD, TYPE, ST_TP, CA, MG, K, NA, KNA, CR6, TCR, HG, CU, PB, 
+    CD, ZN, FE, MN, AG, NI, MO, CO, BE, SB, BA, V, TI, TL, AL, THRD, ARS, SE, TEST_COM_TM, 
+    TS, ISSEND, NT
+    from gs_misp_d
+  </select>
+</mapper>

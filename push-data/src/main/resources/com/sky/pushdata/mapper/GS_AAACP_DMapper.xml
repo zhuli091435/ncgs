@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_AAACP_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_AAACP_D">
+    <id column="RP_CD" jdbcType="VARCHAR" property="RP_CD" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <result column="ST_TP" jdbcType="CHAR" property="ST_TP" />
+    <result column="ERLJW" jdbcType="VARCHAR" property="ERLJW" />
+    <result column="SLJW" jdbcType="VARCHAR" property="SLJW" />
+    <result column="SILHT" jdbcType="VARCHAR" property="SILHT" />
+    <result column="SXJW" jdbcType="VARCHAR" property="SXJW" />
+    <result column="ERLYW12" jdbcType="VARCHAR" property="ERLYW12" />
+    <result column="HYLBW" jdbcType="VARCHAR" property="HYLBW" />
+    <result column="HYQL" jdbcType="VARCHAR" property="HYQL" />
+    <result column="LYX" jdbcType="VARCHAR" property="LYX" />
+    <result column="ERLYX11" jdbcType="VARCHAR" property="ERLYX11" />
+    <result column="ERLYX12" jdbcType="VARCHAR" property="ERLYX12" />
+    <result column="SLYX" jdbcType="VARCHAR" property="SLYX" />
+    <result column="SILYX" jdbcType="VARCHAR" property="SILYX" />
+    <result column="LDERX" jdbcType="VARCHAR" property="LDERX" />
+    <result column="LLDERX" jdbcType="VARCHAR" property="LLDERX" />
+    <result column="JQ" jdbcType="VARCHAR" property="JQ" />
+    <result column="YQ" jdbcType="VARCHAR" property="YQ" />
+    <result column="SLYQ" jdbcType="VARCHAR" property="SLYQ" />
+    <result column="BXQ" jdbcType="VARCHAR" property="BXQ" />
+    <result column="BXXAN" jdbcType="VARCHAR" property="BXXAN" />
+    <result column="BXQI" jdbcType="VARCHAR" property="BXQI" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="TEST_COM_TM" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+    <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from gs_aaacp_d
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_AAACP_D">
+    insert into gs_aaacp_d (RP_CD, SPT, TW_CD, 
+      AD_CD, TYPE, ST_TP, ERLJW, 
+      SLJW, SILHT, SXJW, 
+      ERLYW12, HYLBW, HYQL, 
+      LYX, ERLYX11, ERLYX12, 
+      SLYX, SILYX, LDERX, 
+      LLDERX, JQ, YQ, SLYQ, 
+      BXQ, BXXAN, BXQI, TEST_COM_TM, 
+      TS, ISSEND, NT
+      )
+    values (#{RP_CD,jdbcType=VARCHAR}, #{SPT,jdbcType=TIMESTAMP}, #{TW_CD,jdbcType=VARCHAR}, 
+      #{AD_CD,jdbcType=CHAR}, #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{ERLJW,jdbcType=VARCHAR}, 
+      #{SLJW,jdbcType=VARCHAR}, #{SILHT,jdbcType=VARCHAR}, #{SXJW,jdbcType=VARCHAR}, 
+      #{ERLYW12,jdbcType=VARCHAR}, #{HYLBW,jdbcType=VARCHAR}, #{HYQL,jdbcType=VARCHAR}, 
+      #{LYX,jdbcType=VARCHAR}, #{ERLYX11,jdbcType=VARCHAR}, #{ERLYX12,jdbcType=VARCHAR}, 
+      #{SLYX,jdbcType=VARCHAR}, #{SILYX,jdbcType=VARCHAR}, #{LDERX,jdbcType=VARCHAR}, 
+      #{LLDERX,jdbcType=VARCHAR}, #{JQ,jdbcType=VARCHAR}, #{YQ,jdbcType=VARCHAR}, #{SLYQ,jdbcType=VARCHAR}, 
+      #{BXQ,jdbcType=VARCHAR}, #{BXXAN,jdbcType=VARCHAR}, #{BXQI,jdbcType=VARCHAR}, #{TEST_COM_TM,jdbcType=TIMESTAMP}, 
+      #{TS,jdbcType=TIMESTAMP}, #{ISSEND,jdbcType=INTEGER}, #{NT,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_AAACP_D">
+    update gs_aaacp_d
+    set TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      AD_CD = #{AD_CD,jdbcType=CHAR},
+      TYPE = #{TYPE,jdbcType=CHAR},
+      ST_TP = #{ST_TP,jdbcType=CHAR},
+      ERLJW = #{ERLJW,jdbcType=VARCHAR},
+      SLJW = #{SLJW,jdbcType=VARCHAR},
+      SILHT = #{SILHT,jdbcType=VARCHAR},
+      SXJW = #{SXJW,jdbcType=VARCHAR},
+      ERLYW12 = #{ERLYW12,jdbcType=VARCHAR},
+      HYLBW = #{HYLBW,jdbcType=VARCHAR},
+      HYQL = #{HYQL,jdbcType=VARCHAR},
+      LYX = #{LYX,jdbcType=VARCHAR},
+      ERLYX11 = #{ERLYX11,jdbcType=VARCHAR},
+      ERLYX12 = #{ERLYX12,jdbcType=VARCHAR},
+      SLYX = #{SLYX,jdbcType=VARCHAR},
+      SILYX = #{SILYX,jdbcType=VARCHAR},
+      LDERX = #{LDERX,jdbcType=VARCHAR},
+      LLDERX = #{LLDERX,jdbcType=VARCHAR},
+      JQ = #{JQ,jdbcType=VARCHAR},
+      YQ = #{YQ,jdbcType=VARCHAR},
+      SLYQ = #{SLYQ,jdbcType=VARCHAR},
+      BXQ = #{BXQ,jdbcType=VARCHAR},
+      BXXAN = #{BXXAN,jdbcType=VARCHAR},
+      BXQI = #{BXQI,jdbcType=VARCHAR},
+      TEST_COM_TM = #{TEST_COM_TM,jdbcType=TIMESTAMP},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      ISSEND = #{ISSEND,jdbcType=INTEGER},
+      NT = #{NT,jdbcType=LONGVARCHAR}
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select RP_CD, SPT, TW_CD, AD_CD, TYPE, ST_TP, ERLJW, SLJW, SILHT, SXJW, ERLYW12, 
+    HYLBW, HYQL, LYX, ERLYX11, ERLYX12, SLYX, SILYX, LDERX, LLDERX, JQ, YQ, SLYQ, BXQ, 
+    BXXAN, BXQI, TEST_COM_TM, TS, ISSEND, NT
+    from gs_aaacp_d
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select RP_CD, SPT, TW_CD, AD_CD, TYPE, ST_TP, ERLJW, SLJW, SILHT, SXJW, ERLYW12, 
+    HYLBW, HYQL, LYX, ERLYX11, ERLYX12, SLYX, SILYX, LDERX, LLDERX, JQ, YQ, SLYQ, BXQ, 
+    BXXAN, BXQI, TEST_COM_TM, TS, ISSEND, NT
+    from gs_aaacp_d
+  </select>
+</mapper>

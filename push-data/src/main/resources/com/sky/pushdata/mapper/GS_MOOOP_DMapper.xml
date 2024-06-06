@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_MOOOP_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_MOOOP_D">
+    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <result column="ST_TP" jdbcType="CHAR" property="ST_TP" />
+    <result column="JJG" jdbcType="VARCHAR" property="JJG" />
+    <result column="YJG" jdbcType="VARCHAR" property="YJG" />
+    <result column="SYJQ" jdbcType="VARCHAR" property="SYJQ" />
+    <result column="DJHYS" jdbcType="VARCHAR" property="DJHYS" />
+    <result column="BD" jdbcType="VARCHAR" property="BD" />
+    <result column="SHHJ" jdbcType="VARCHAR" property="SHHJ" />
+    <result column="SJY" jdbcType="VARCHAR" property="SJY" />
+    <result column="BBAB" jdbcType="VARCHAR" property="BBAB" />
+    <result column="LAS" jdbcType="VARCHAR" property="LAS" />
+    <result column="TOC" jdbcType="VARCHAR" property="TOC" />
+    <result column="OIL" jdbcType="VARCHAR" property="OIL" />
+    <result column="DZHWY" jdbcType="VARCHAR" property="DZHWY" />
+    <result column="WNZDSLR" jdbcType="VARCHAR" property="WNZDSLR" />
+    <result column="CHLA" jdbcType="VARCHAR" property="CHLA" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="TEST_COM_TM" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+    <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.util.Date">
+    delete from gs_mooop_d
+    where SPT = #{SPT,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_MOOOP_D">
+    insert into gs_mooop_d (SPT, TW_CD, AD_CD, 
+      TYPE, ST_TP, JJG, YJG, 
+      SYJQ, DJHYS, BD, SHHJ, 
+      SJY, BBAB, LAS, TOC, 
+      OIL, DZHWY, WNZDSLR, 
+      CHLA, TEST_COM_TM, TS, 
+      ISSEND, NT)
+    values (#{SPT,jdbcType=TIMESTAMP}, #{TW_CD,jdbcType=VARCHAR}, #{AD_CD,jdbcType=CHAR}, 
+      #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{JJG,jdbcType=VARCHAR}, #{YJG,jdbcType=VARCHAR}, 
+      #{SYJQ,jdbcType=VARCHAR}, #{DJHYS,jdbcType=VARCHAR}, #{BD,jdbcType=VARCHAR}, #{SHHJ,jdbcType=VARCHAR}, 
+      #{SJY,jdbcType=VARCHAR}, #{BBAB,jdbcType=VARCHAR}, #{LAS,jdbcType=VARCHAR}, #{TOC,jdbcType=VARCHAR}, 
+      #{OIL,jdbcType=VARCHAR}, #{DZHWY,jdbcType=VARCHAR}, #{WNZDSLR,jdbcType=VARCHAR}, 
+      #{CHLA,jdbcType=VARCHAR}, #{TEST_COM_TM,jdbcType=TIMESTAMP}, #{TS,jdbcType=TIMESTAMP}, 
+      #{ISSEND,jdbcType=INTEGER}, #{NT,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_MOOOP_D">
+    update gs_mooop_d
+    set TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      AD_CD = #{AD_CD,jdbcType=CHAR},
+      TYPE = #{TYPE,jdbcType=CHAR},
+      ST_TP = #{ST_TP,jdbcType=CHAR},
+      JJG = #{JJG,jdbcType=VARCHAR},
+      YJG = #{YJG,jdbcType=VARCHAR},
+      SYJQ = #{SYJQ,jdbcType=VARCHAR},
+      DJHYS = #{DJHYS,jdbcType=VARCHAR},
+      BD = #{BD,jdbcType=VARCHAR},
+      SHHJ = #{SHHJ,jdbcType=VARCHAR},
+      SJY = #{SJY,jdbcType=VARCHAR},
+      BBAB = #{BBAB,jdbcType=VARCHAR},
+      LAS = #{LAS,jdbcType=VARCHAR},
+      TOC = #{TOC,jdbcType=VARCHAR},
+      OIL = #{OIL,jdbcType=VARCHAR},
+      DZHWY = #{DZHWY,jdbcType=VARCHAR},
+      WNZDSLR = #{WNZDSLR,jdbcType=VARCHAR},
+      CHLA = #{CHLA,jdbcType=VARCHAR},
+      TEST_COM_TM = #{TEST_COM_TM,jdbcType=TIMESTAMP},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      ISSEND = #{ISSEND,jdbcType=INTEGER},
+      NT = #{NT,jdbcType=LONGVARCHAR}
+    where SPT = #{SPT,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.util.Date" resultMap="BaseResultMap">
+    select SPT, TW_CD, AD_CD, TYPE, ST_TP, JJG, YJG, SYJQ, DJHYS, BD, SHHJ, SJY, BBAB, 
+    LAS, TOC, OIL, DZHWY, WNZDSLR, CHLA, TEST_COM_TM, TS, ISSEND, NT
+    from gs_mooop_d
+    where SPT = #{SPT,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SPT, TW_CD, AD_CD, TYPE, ST_TP, JJG, YJG, SYJQ, DJHYS, BD, SHHJ, SJY, BBAB, 
+    LAS, TOC, OIL, DZHWY, WNZDSLR, CHLA, TEST_COM_TM, TS, ISSEND, NT
+    from gs_mooop_d
+  </select>
+</mapper>

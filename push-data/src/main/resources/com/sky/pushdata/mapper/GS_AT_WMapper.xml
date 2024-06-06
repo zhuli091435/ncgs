@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_AT_WMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_AT_W">
+    <id column="ATN" jdbcType="VARCHAR" property="ATN" />
+    <result column="ATNM" jdbcType="VARCHAR" property="ATNM" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <result column="LOC" jdbcType="VARCHAR" property="LOC" />
+    <result column="TEL" jdbcType="VARCHAR" property="TEL" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="NT" jdbcType="VARCHAR" property="NT" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from gs_at_w
+    where ATN = #{ATN,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_AT_W">
+    insert into gs_at_w (ATN, ATNM, TW_CD, 
+      AD_CD, TYPE, LOC, TEL, 
+      TS, NT, ISSEND)
+    values (#{ATN,jdbcType=VARCHAR}, #{ATNM,jdbcType=VARCHAR}, #{TW_CD,jdbcType=VARCHAR}, 
+      #{AD_CD,jdbcType=CHAR}, #{TYPE,jdbcType=CHAR}, #{LOC,jdbcType=VARCHAR}, #{TEL,jdbcType=VARCHAR}, 
+      #{TS,jdbcType=TIMESTAMP}, #{NT,jdbcType=VARCHAR}, #{ISSEND,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_AT_W">
+    update gs_at_w
+    set ATNM = #{ATNM,jdbcType=VARCHAR},
+      TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      AD_CD = #{AD_CD,jdbcType=CHAR},
+      TYPE = #{TYPE,jdbcType=CHAR},
+      LOC = #{LOC,jdbcType=VARCHAR},
+      TEL = #{TEL,jdbcType=VARCHAR},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      NT = #{NT,jdbcType=VARCHAR},
+      ISSEND = #{ISSEND,jdbcType=INTEGER}
+    where ATN = #{ATN,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ATN, ATNM, TW_CD, AD_CD, TYPE, LOC, TEL, TS, NT, ISSEND
+    from gs_at_w
+    where ATN = #{ATN,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ATN, ATNM, TW_CD, AD_CD, TYPE, LOC, TEL, TS, NT, ISSEND
+    from gs_at_w
+  </select>
+</mapper>

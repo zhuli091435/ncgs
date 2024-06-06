@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_AWQMD_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_AWQMD_D">
+    <id column="STCD" jdbcType="VARCHAR" property="STCD" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="WT" jdbcType="DECIMAL" property="WT" />
+    <result column="PH" jdbcType="DECIMAL" property="PH" />
+    <result column="CHL" jdbcType="DECIMAL" property="CHL" />
+    <result column="COND" jdbcType="INTEGER" property="COND" />
+    <result column="TURB" jdbcType="INTEGER" property="TURB" />
+    <result column="DOX" jdbcType="DECIMAL" property="DOX" />
+    <result column="CODMN" jdbcType="DECIMAL" property="CODMN" />
+    <result column="CODCR" jdbcType="DECIMAL" property="CODCR" />
+    <result column="TN" jdbcType="DECIMAL" property="TN" />
+    <result column="NH3N" jdbcType="DECIMAL" property="NH3N" />
+    <result column="NO2" jdbcType="DECIMAL" property="NO2" />
+    <result column="NO3" jdbcType="DECIMAL" property="NO3" />
+    <result column="TP" jdbcType="DECIMAL" property="TP" />
+    <result column="TOC" jdbcType="DECIMAL" property="TOC" />
+    <result column="VLPH" jdbcType="DECIMAL" property="VLPH" />
+    <result column="CHLA" jdbcType="DECIMAL" property="CHLA" />
+    <result column="F" jdbcType="DECIMAL" property="f" />
+    <result column="ARS" jdbcType="DECIMAL" property="ARS" />
+    <result column="HG" jdbcType="DECIMAL" property="HG" />
+    <result column="CR6" jdbcType="DECIMAL" property="CR6" />
+    <result column="CU" jdbcType="DECIMAL" property="CU" />
+    <result column="PB" jdbcType="DECIMAL" property="PB" />
+    <result column="CD" jdbcType="DECIMAL" property="CD" />
+    <result column="ZN" jdbcType="DECIMAL" property="ZN" />
+    <result column="SB" jdbcType="DECIMAL" property="SB" />
+    <result column="NT" jdbcType="VARCHAR" property="NT" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from gs_awqmd_d
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_AWQMD_D">
+    insert into gs_awqmd_d (STCD, SPT, AD_CD, 
+      TW_CD, WT, PH, CHL, 
+      COND, TURB, DOX, CODMN, 
+      CODCR, TN, NH3N, NO2, 
+      NO3, TP, TOC, VLPH, 
+      CHLA, F, ARS, HG, 
+      CR6, CU, PB, CD, 
+      ZN, SB, NT, TS, 
+      ISSEND)
+    values (#{STCD,jdbcType=VARCHAR}, #{SPT,jdbcType=TIMESTAMP}, #{AD_CD,jdbcType=CHAR}, 
+      #{TW_CD,jdbcType=VARCHAR}, #{WT,jdbcType=DECIMAL}, #{PH,jdbcType=DECIMAL}, #{CHL,jdbcType=DECIMAL}, 
+      #{COND,jdbcType=INTEGER}, #{TURB,jdbcType=INTEGER}, #{DOX,jdbcType=DECIMAL}, #{CODMN,jdbcType=DECIMAL}, 
+      #{CODCR,jdbcType=DECIMAL}, #{TN,jdbcType=DECIMAL}, #{NH3N,jdbcType=DECIMAL}, #{NO2,jdbcType=DECIMAL}, 
+      #{NO3,jdbcType=DECIMAL}, #{TP,jdbcType=DECIMAL}, #{TOC,jdbcType=DECIMAL}, #{VLPH,jdbcType=DECIMAL}, 
+      #{CHLA,jdbcType=DECIMAL}, #{f,jdbcType=DECIMAL}, #{ARS,jdbcType=DECIMAL}, #{HG,jdbcType=DECIMAL}, 
+      #{CR6,jdbcType=DECIMAL}, #{CU,jdbcType=DECIMAL}, #{PB,jdbcType=DECIMAL}, #{CD,jdbcType=DECIMAL}, 
+      #{ZN,jdbcType=DECIMAL}, #{SB,jdbcType=DECIMAL}, #{NT,jdbcType=VARCHAR}, #{TS,jdbcType=TIMESTAMP}, 
+      #{ISSEND,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_AWQMD_D">
+    update gs_awqmd_d
+    set AD_CD = #{AD_CD,jdbcType=CHAR},
+      TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      WT = #{WT,jdbcType=DECIMAL},
+      PH = #{PH,jdbcType=DECIMAL},
+      CHL = #{CHL,jdbcType=DECIMAL},
+      COND = #{COND,jdbcType=INTEGER},
+      TURB = #{TURB,jdbcType=INTEGER},
+      DOX = #{DOX,jdbcType=DECIMAL},
+      CODMN = #{CODMN,jdbcType=DECIMAL},
+      CODCR = #{CODCR,jdbcType=DECIMAL},
+      TN = #{TN,jdbcType=DECIMAL},
+      NH3N = #{NH3N,jdbcType=DECIMAL},
+      NO2 = #{NO2,jdbcType=DECIMAL},
+      NO3 = #{NO3,jdbcType=DECIMAL},
+      TP = #{TP,jdbcType=DECIMAL},
+      TOC = #{TOC,jdbcType=DECIMAL},
+      VLPH = #{VLPH,jdbcType=DECIMAL},
+      CHLA = #{CHLA,jdbcType=DECIMAL},
+      F = #{f,jdbcType=DECIMAL},
+      ARS = #{ARS,jdbcType=DECIMAL},
+      HG = #{HG,jdbcType=DECIMAL},
+      CR6 = #{CR6,jdbcType=DECIMAL},
+      CU = #{CU,jdbcType=DECIMAL},
+      PB = #{PB,jdbcType=DECIMAL},
+      CD = #{CD,jdbcType=DECIMAL},
+      ZN = #{ZN,jdbcType=DECIMAL},
+      SB = #{SB,jdbcType=DECIMAL},
+      NT = #{NT,jdbcType=VARCHAR},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      ISSEND = #{ISSEND,jdbcType=INTEGER}
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select STCD, SPT, AD_CD, TW_CD, WT, PH, CHL, COND, TURB, DOX, CODMN, CODCR, TN, NH3N, 
+    NO2, NO3, TP, TOC, VLPH, CHLA, F, ARS, HG, CR6, CU, PB, CD, ZN, SB, NT, TS, ISSEND
+    from gs_awqmd_d
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, SPT, AD_CD, TW_CD, WT, PH, CHL, COND, TURB, DOX, CODMN, CODCR, TN, NH3N, 
+    NO2, NO3, TP, TOC, VLPH, CHLA, F, ARS, HG, CR6, CU, PB, CD, ZN, SB, NT, TS, ISSEND
+    from gs_awqmd_d
+  </select>
+</mapper>

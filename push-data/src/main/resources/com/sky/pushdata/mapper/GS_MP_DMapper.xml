@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_MP_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_MP_D">
+    <id column="STCD" jdbcType="VARCHAR" property="STCD" />
+    <id column="TM" jdbcType="TIMESTAMP" property="TM" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="DAY_W" jdbcType="DECIMAL" property="DAY_W" />
+    <result column="FL_RT" jdbcType="DECIMAL" property="FL_RT" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="NT" jdbcType="VARCHAR" property="NT" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from gs_mp_d
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and TM = #{TM,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_MP_D">
+    insert into gs_mp_d (STCD, TM, AD_CD, 
+      TW_CD, DAY_W, FL_RT, 
+      TS, NT, ISSEND)
+    values (#{STCD,jdbcType=VARCHAR}, #{TM,jdbcType=TIMESTAMP}, #{AD_CD,jdbcType=CHAR}, 
+      #{TW_CD,jdbcType=VARCHAR}, #{DAY_W,jdbcType=DECIMAL}, #{FL_RT,jdbcType=DECIMAL}, 
+      #{TS,jdbcType=TIMESTAMP}, #{NT,jdbcType=VARCHAR}, #{ISSEND,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_MP_D">
+    update gs_mp_d
+    set AD_CD = #{AD_CD,jdbcType=CHAR},
+      TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      DAY_W = #{DAY_W,jdbcType=DECIMAL},
+      FL_RT = #{FL_RT,jdbcType=DECIMAL},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      NT = #{NT,jdbcType=VARCHAR},
+      ISSEND = #{ISSEND,jdbcType=INTEGER}
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and TM = #{TM,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select STCD, TM, AD_CD, TW_CD, DAY_W, FL_RT, TS, NT, ISSEND
+    from gs_mp_d
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and TM = #{TM,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, AD_CD, TW_CD, DAY_W, FL_RT, TS, NT, ISSEND
+    from gs_mp_d
+  </select>
+</mapper>

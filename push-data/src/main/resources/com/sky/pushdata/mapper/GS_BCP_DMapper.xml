@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_BCP_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_BCP_D">
+    <id column="RP_CD" jdbcType="VARCHAR" property="RP_CD" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <result column="ST_TP" jdbcType="CHAR" property="ST_TP" />
+    <result column="BEN" jdbcType="VARCHAR" property="BEN" />
+    <result column="JBEN" jdbcType="VARCHAR" property="JBEN" />
+    <result column="YBEN" jdbcType="VARCHAR" property="YBEN" />
+    <result column="ERJBEN" jdbcType="VARCHAR" property="ERJBEN" />
+    <result column="LBEN" jdbcType="VARCHAR" property="LBEN" />
+    <result column="BENYX" jdbcType="VARCHAR" property="BENYX" />
+    <result column="ERLB12" jdbcType="VARCHAR" property="ERLB12" />
+    <result column="ERLB14" jdbcType="VARCHAR" property="ERLB14" />
+    <result column="SLB123" jdbcType="VARCHAR" property="SLB123" />
+    <result column="SLB124" jdbcType="VARCHAR" property="SLB124" />
+    <result column="SLB135" jdbcType="VARCHAR" property="SLB135" />
+    <result column="SILBEN" jdbcType="VARCHAR" property="SILBEN" />
+    <result column="XJBEN" jdbcType="VARCHAR" property="XJBEN" />
+    <result column="ERXJB12" jdbcType="VARCHAR" property="ERXJB12" />
+    <result column="FRXIB13" jdbcType="VARCHAR" property="FRXIB13" />
+    <result column="ERXJB14" jdbcType="VARCHAR" property="ERXJB14" />
+    <result column="ERXJJB24" jdbcType="VARCHAR" property="ERXJJB24" />
+    <result column="SXJJB246" jdbcType="VARCHAR" property="SXJJB246" />
+    <result column="X1LB2" jdbcType="VARCHAR" property="x1LB2" />
+    <result column="XJLB3" jdbcType="VARCHAR" property="XJLB3" />
+    <result column="XJLB4" jdbcType="VARCHAR" property="XJLB4" />
+    <result column="ERXJLB24" jdbcType="VARCHAR" property="ERXJLB24" />
+    <result column="PCB" jdbcType="VARCHAR" property="PCB" />
+    <result column="YBBEN" jdbcType="VARCHAR" property="YBBEN" />
+    <result column="BENAN" jdbcType="VARCHAR" property="BENAN" />
+    <result column="LBENAN" jdbcType="VARCHAR" property="LBENAN" />
+    <result column="LBEJSEJZH" jdbcType="VARCHAR" property="LBEJSEJZH" />
+    <result column="LBEJSEDZH" jdbcType="VARCHAR" property="LBEJSEDZH" />
+    <result column="LBEJSEXZH" jdbcType="VARCHAR" property="LBEJSEXZH" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="TEST_COM_TM" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+    <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from gs_bcp_d
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_BCP_D">
+    insert into gs_bcp_d (RP_CD, SPT, TW_CD, 
+      AD_CD, TYPE, ST_TP, BEN, 
+      JBEN, YBEN, ERJBEN, 
+      LBEN, BENYX, ERLB12, 
+      ERLB14, SLB123, SLB124, 
+      SLB135, SILBEN, XJBEN, 
+      ERXJB12, FRXIB13, ERXJB14, 
+      ERXJJB24, SXJJB246, X1LB2, 
+      XJLB3, XJLB4, ERXJLB24, 
+      PCB, YBBEN, BENAN, 
+      LBENAN, LBEJSEJZH, LBEJSEDZH, 
+      LBEJSEXZH, TEST_COM_TM, TS, 
+      ISSEND, NT)
+    values (#{RP_CD,jdbcType=VARCHAR}, #{SPT,jdbcType=TIMESTAMP}, #{TW_CD,jdbcType=VARCHAR}, 
+      #{AD_CD,jdbcType=CHAR}, #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{BEN,jdbcType=VARCHAR}, 
+      #{JBEN,jdbcType=VARCHAR}, #{YBEN,jdbcType=VARCHAR}, #{ERJBEN,jdbcType=VARCHAR}, 
+      #{LBEN,jdbcType=VARCHAR}, #{BENYX,jdbcType=VARCHAR}, #{ERLB12,jdbcType=VARCHAR}, 
+      #{ERLB14,jdbcType=VARCHAR}, #{SLB123,jdbcType=VARCHAR}, #{SLB124,jdbcType=VARCHAR}, 
+      #{SLB135,jdbcType=VARCHAR}, #{SILBEN,jdbcType=VARCHAR}, #{XJBEN,jdbcType=VARCHAR}, 
+      #{ERXJB12,jdbcType=VARCHAR}, #{FRXIB13,jdbcType=VARCHAR}, #{ERXJB14,jdbcType=VARCHAR}, 
+      #{ERXJJB24,jdbcType=VARCHAR}, #{SXJJB246,jdbcType=VARCHAR}, #{x1LB2,jdbcType=VARCHAR}, 
+      #{XJLB3,jdbcType=VARCHAR}, #{XJLB4,jdbcType=VARCHAR}, #{ERXJLB24,jdbcType=VARCHAR}, 
+      #{PCB,jdbcType=VARCHAR}, #{YBBEN,jdbcType=VARCHAR}, #{BENAN,jdbcType=VARCHAR}, 
+      #{LBENAN,jdbcType=VARCHAR}, #{LBEJSEJZH,jdbcType=VARCHAR}, #{LBEJSEDZH,jdbcType=VARCHAR}, 
+      #{LBEJSEXZH,jdbcType=VARCHAR}, #{TEST_COM_TM,jdbcType=TIMESTAMP}, #{TS,jdbcType=TIMESTAMP}, 
+      #{ISSEND,jdbcType=INTEGER}, #{NT,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_BCP_D">
+    update gs_bcp_d
+    set TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      AD_CD = #{AD_CD,jdbcType=CHAR},
+      TYPE = #{TYPE,jdbcType=CHAR},
+      ST_TP = #{ST_TP,jdbcType=CHAR},
+      BEN = #{BEN,jdbcType=VARCHAR},
+      JBEN = #{JBEN,jdbcType=VARCHAR},
+      YBEN = #{YBEN,jdbcType=VARCHAR},
+      ERJBEN = #{ERJBEN,jdbcType=VARCHAR},
+      LBEN = #{LBEN,jdbcType=VARCHAR},
+      BENYX = #{BENYX,jdbcType=VARCHAR},
+      ERLB12 = #{ERLB12,jdbcType=VARCHAR},
+      ERLB14 = #{ERLB14,jdbcType=VARCHAR},
+      SLB123 = #{SLB123,jdbcType=VARCHAR},
+      SLB124 = #{SLB124,jdbcType=VARCHAR},
+      SLB135 = #{SLB135,jdbcType=VARCHAR},
+      SILBEN = #{SILBEN,jdbcType=VARCHAR},
+      XJBEN = #{XJBEN,jdbcType=VARCHAR},
+      ERXJB12 = #{ERXJB12,jdbcType=VARCHAR},
+      FRXIB13 = #{FRXIB13,jdbcType=VARCHAR},
+      ERXJB14 = #{ERXJB14,jdbcType=VARCHAR},
+      ERXJJB24 = #{ERXJJB24,jdbcType=VARCHAR},
+      SXJJB246 = #{SXJJB246,jdbcType=VARCHAR},
+      X1LB2 = #{x1LB2,jdbcType=VARCHAR},
+      XJLB3 = #{XJLB3,jdbcType=VARCHAR},
+      XJLB4 = #{XJLB4,jdbcType=VARCHAR},
+      ERXJLB24 = #{ERXJLB24,jdbcType=VARCHAR},
+      PCB = #{PCB,jdbcType=VARCHAR},
+      YBBEN = #{YBBEN,jdbcType=VARCHAR},
+      BENAN = #{BENAN,jdbcType=VARCHAR},
+      LBENAN = #{LBENAN,jdbcType=VARCHAR},
+      LBEJSEJZH = #{LBEJSEJZH,jdbcType=VARCHAR},
+      LBEJSEDZH = #{LBEJSEDZH,jdbcType=VARCHAR},
+      LBEJSEXZH = #{LBEJSEXZH,jdbcType=VARCHAR},
+      TEST_COM_TM = #{TEST_COM_TM,jdbcType=TIMESTAMP},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      ISSEND = #{ISSEND,jdbcType=INTEGER},
+      NT = #{NT,jdbcType=LONGVARCHAR}
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select RP_CD, SPT, TW_CD, AD_CD, TYPE, ST_TP, BEN, JBEN, YBEN, ERJBEN, LBEN, BENYX, 
+    ERLB12, ERLB14, SLB123, SLB124, SLB135, SILBEN, XJBEN, ERXJB12, FRXIB13, ERXJB14, 
+    ERXJJB24, SXJJB246, X1LB2, XJLB3, XJLB4, ERXJLB24, PCB, YBBEN, BENAN, LBENAN, LBEJSEJZH, 
+    LBEJSEDZH, LBEJSEXZH, TEST_COM_TM, TS, ISSEND, NT
+    from gs_bcp_d
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select RP_CD, SPT, TW_CD, AD_CD, TYPE, ST_TP, BEN, JBEN, YBEN, ERJBEN, LBEN, BENYX, 
+    ERLB12, ERLB14, SLB123, SLB124, SLB135, SILBEN, XJBEN, ERXJB12, FRXIB13, ERXJB14, 
+    ERXJJB24, SXJJB246, X1LB2, XJLB3, XJLB4, ERXJLB24, PCB, YBBEN, BENAN, LBENAN, LBEJSEJZH, 
+    LBEJSEDZH, LBEJSEXZH, TEST_COM_TM, TS, ISSEND, NT
+    from gs_bcp_d
+  </select>
+</mapper>

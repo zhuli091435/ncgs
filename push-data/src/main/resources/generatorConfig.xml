@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--
+        targetRuntime有两个值：
+            MyBatis3Simple：生成的是基础版，只有基本的增删改查。
+            MyBatis3：生成的是增强版，除了基本的增删改查之外还有复杂的增删改查。
+    -->
+    <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+        <!--防止生成重复代码-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+
+        <commentGenerator>
+            <!--是否去掉生成日期-->
+            <property name="suppressDate" value="true"/>
+            <!--是否去除注释-->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--连接数据库信息-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.0.106:3306/ncgs2"
+                        userId="root"
+                        password="MiaoFu2012">
+        </jdbcConnection>
+
+        <!-- 生成pojo包名和位置 -->
+        <javaModelGenerator targetPackage="com.sky.pushdata.pojo" targetProject="src/main/java">
+            <!--是否开启子包-->
+            <property name="enableSubPackages" value="true"/>
+            <!--是否去除字段名的前后空白-->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成SQL映射文件的包名和位置 -->
+        <sqlMapGenerator targetPackage="com.sky.pushdata.mapper" targetProject="src/main/resources">
+            <!--是否开启子包-->
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生成Mapper接口的包名和位置 -->
+        <javaClientGenerator
+                type="xmlMapper"
+                targetPackage="com.sky.pushdata.mapper"
+                targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 1.3测站基本信息表-->
+        <table tableName="gs_stat_b" domainObjectName="GS_STAT_B">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 1.4用水户基础信息表-->
+        <table tableName="gs_at_w" domainObjectName="GS_AT_W">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 1.6监管用户基础信息表-->
+        <table tableName="gs_user_b" domainObjectName="GS_USER_B">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.1自来水公司每日水量数据表-->
+        <table tableName="gs_tw_w" domainObjectName="GS_TW_W">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.2测站水量自动监测表-->
+        <table tableName="gs_mp_d" domainObjectName="GS_MP_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.3测站水压自动监测表-->
+        <table tableName="gs_mpwm_d" domainObjectName="GS_MPWM_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.4测站水质自动监测表-->
+        <table tableName="gs_awqmd_d" domainObjectName="GS_AWQMD_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.5水质抽检理化指标项目数据表-->
+        <table tableName="gs_pcp_d" domainObjectName="GS_PCP_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.6水质抽检非金属无机物检测项目数据表-->
+        <table tableName="gs_nmisp_d" domainObjectName="GS_NMISP_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.7 水质抽检金属无机物检测项目数据表-->
+        <table tableName="gs_misp_d" domainObjectName="GS_MISP_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.8 水质抽检酚类有机物检测项目数据表-->
+        <table tableName="gs_phncp_d" domainObjectName="GS_PHNCP_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.9 水质抽检有机农药类检测项目数据表-->
+        <table tableName="gs_opcp_d" domainObjectName="GS_OPCP_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.10 水质抽检苯类有机物检测项目数据表-->
+        <table tableName="gs_bcp_d" domainObjectName="GS_BCP_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.11 水质抽检卤代烷醛胺类有机物检测项目数据表-->
+        <table tableName="gs_aaacp_d" domainObjectName="GS_AAACP_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.12 水质抽检金属有机物及其他有机物检测项目数据表-->
+        <table tableName="gs_mooop_d" domainObjectName="GS_MOOOP_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.13 水质抽检水体卫生检测项目数据表-->
+        <table tableName="gs_wbhp_d" domainObjectName="GS_WBHP_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.14停水公告数据表-->
+        <table tableName="gs_atg_w" domainObjectName="GS_ATG_W">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <!-- 2.15用水户用水信息数据表-->
+        <table tableName="gs_at_d" domainObjectName="GS_AT_D">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

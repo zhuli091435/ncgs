@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_STAT_BMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_STAT_B">
+    <id column="STCD" jdbcType="VARCHAR" property="STCD" />
+    <id column="ST_NM" jdbcType="VARCHAR" property="ST_NM" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="ST_MPWM" jdbcType="CHAR" property="ST_MPWM" />
+    <result column="ST_WQM" jdbcType="CHAR" property="ST_WQM" />
+    <result column="ST_MP" jdbcType="CHAR" property="ST_MP" />
+    <result column="MON_TP" jdbcType="CHAR" property="MON_TP" />
+    <result column="TH_D" jdbcType="DECIMAL" property="TH_D" />
+    <result column="LGTD" jdbcType="DECIMAL" property="LGTD" />
+    <result column="LTTD" jdbcType="DECIMAL" property="LTTD" />
+    <result column="LOC" jdbcType="VARCHAR" property="LOC" />
+    <result column="STBK" jdbcType="CHAR" property="STBK" />
+    <result column="ADAG" jdbcType="VARCHAR" property="ADAG" />
+    <result column="MNAG" jdbcType="VARCHAR" property="MNAG" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="NT" jdbcType="VARCHAR" property="NT" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from gs_stat_b
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and ST_NM = #{ST_NM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_STAT_B">
+    insert into gs_stat_b (STCD, ST_NM, AD_CD, 
+      TW_CD, ST_MPWM, ST_WQM, ST_MP, 
+      MON_TP, TH_D, LGTD, LTTD, 
+      LOC, STBK, ADAG, MNAG, 
+      TS, NT, ISSEND)
+    values (#{STCD,jdbcType=VARCHAR}, #{ST_NM,jdbcType=VARCHAR}, #{AD_CD,jdbcType=CHAR}, 
+      #{TW_CD,jdbcType=VARCHAR}, #{ST_MPWM,jdbcType=CHAR}, #{ST_WQM,jdbcType=CHAR}, #{ST_MP,jdbcType=CHAR}, 
+      #{MON_TP,jdbcType=CHAR}, #{TH_D,jdbcType=DECIMAL}, #{LGTD,jdbcType=DECIMAL}, #{LTTD,jdbcType=DECIMAL}, 
+      #{LOC,jdbcType=VARCHAR}, #{STBK,jdbcType=CHAR}, #{ADAG,jdbcType=VARCHAR}, #{MNAG,jdbcType=VARCHAR}, 
+      #{TS,jdbcType=TIMESTAMP}, #{NT,jdbcType=VARCHAR}, #{ISSEND,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_STAT_B">
+    update gs_stat_b
+    set AD_CD = #{AD_CD,jdbcType=CHAR},
+      TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      ST_MPWM = #{ST_MPWM,jdbcType=CHAR},
+      ST_WQM = #{ST_WQM,jdbcType=CHAR},
+      ST_MP = #{ST_MP,jdbcType=CHAR},
+      MON_TP = #{MON_TP,jdbcType=CHAR},
+      TH_D = #{TH_D,jdbcType=DECIMAL},
+      LGTD = #{LGTD,jdbcType=DECIMAL},
+      LTTD = #{LTTD,jdbcType=DECIMAL},
+      LOC = #{LOC,jdbcType=VARCHAR},
+      STBK = #{STBK,jdbcType=CHAR},
+      ADAG = #{ADAG,jdbcType=VARCHAR},
+      MNAG = #{MNAG,jdbcType=VARCHAR},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      NT = #{NT,jdbcType=VARCHAR},
+      ISSEND = #{ISSEND,jdbcType=INTEGER}
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and ST_NM = #{ST_NM,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select STCD, ST_NM, AD_CD, TW_CD, ST_MPWM, ST_WQM, ST_MP, MON_TP, TH_D, LGTD, LTTD, 
+    LOC, STBK, ADAG, MNAG, TS, NT, ISSEND
+    from gs_stat_b
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and ST_NM = #{ST_NM,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, ST_NM, AD_CD, TW_CD, ST_MPWM, ST_WQM, ST_MP, MON_TP, TH_D, LGTD, LTTD, 
+    LOC, STBK, ADAG, MNAG, TS, NT, ISSEND
+    from gs_stat_b
+  </select>
+</mapper>

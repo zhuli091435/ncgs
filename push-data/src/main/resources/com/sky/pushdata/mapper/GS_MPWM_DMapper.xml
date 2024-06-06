@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_MPWM_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_MPWM_D">
+    <id column="STCD" jdbcType="VARCHAR" property="STCD" />
+    <id column="TM" jdbcType="DATE" property="TM" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="PRE_JV" jdbcType="INTEGER" property="PRE_JV" />
+    <result column="PRE_CV" jdbcType="INTEGER" property="PRE_CV" />
+    <result column="Q_JV" jdbcType="DECIMAL" property="q_JV" />
+    <result column="Q_CV" jdbcType="DECIMAL" property="q_CV" />
+    <result column="F_RE" jdbcType="DECIMAL" property="f_RE" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="NT" jdbcType="VARCHAR" property="NT" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from gs_mpwm_d
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and TM = #{TM,jdbcType=DATE}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_MPWM_D">
+    insert into gs_mpwm_d (STCD, TM, AD_CD, TW_CD, 
+      PRE_JV, PRE_CV, Q_JV, 
+      Q_CV, F_RE, TS, NT, 
+      ISSEND)
+    values (#{STCD,jdbcType=VARCHAR}, #{TM,jdbcType=DATE}, #{AD_CD,jdbcType=CHAR}, #{TW_CD,jdbcType=VARCHAR}, 
+      #{PRE_JV,jdbcType=INTEGER}, #{PRE_CV,jdbcType=INTEGER}, #{q_JV,jdbcType=DECIMAL}, 
+      #{q_CV,jdbcType=DECIMAL}, #{f_RE,jdbcType=DECIMAL}, #{TS,jdbcType=TIMESTAMP}, #{NT,jdbcType=VARCHAR}, 
+      #{ISSEND,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_MPWM_D">
+    update gs_mpwm_d
+    set AD_CD = #{AD_CD,jdbcType=CHAR},
+      TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      PRE_JV = #{PRE_JV,jdbcType=INTEGER},
+      PRE_CV = #{PRE_CV,jdbcType=INTEGER},
+      Q_JV = #{q_JV,jdbcType=DECIMAL},
+      Q_CV = #{q_CV,jdbcType=DECIMAL},
+      F_RE = #{f_RE,jdbcType=DECIMAL},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      NT = #{NT,jdbcType=VARCHAR},
+      ISSEND = #{ISSEND,jdbcType=INTEGER}
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and TM = #{TM,jdbcType=DATE}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select STCD, TM, AD_CD, TW_CD, PRE_JV, PRE_CV, Q_JV, Q_CV, F_RE, TS, NT, ISSEND
+    from gs_mpwm_d
+    where STCD = #{STCD,jdbcType=VARCHAR}
+      and TM = #{TM,jdbcType=DATE}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, AD_CD, TW_CD, PRE_JV, PRE_CV, Q_JV, Q_CV, F_RE, TS, NT, ISSEND
+    from gs_mpwm_d
+  </select>
+</mapper>

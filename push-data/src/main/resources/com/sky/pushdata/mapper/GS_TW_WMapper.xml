@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_TW_WMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_TW_W">
+    <id column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <id column="TM" jdbcType="DATE" property="TM" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="DAY_CW" jdbcType="DECIMAL" property="DAY_CW" />
+    <result column="DAY_JW" jdbcType="DECIMAL" property="DAY_JW" />
+    <result column="NT" jdbcType="VARCHAR" property="NT" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from gs_tw_w
+    where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+      and TM = #{TM,jdbcType=DATE}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_TW_W">
+    insert into gs_tw_w (TW_CD, TM, AD_CD, DAY_CW, 
+      DAY_JW, NT, TS, ISSEND
+      )
+    values (#{TW_CD,jdbcType=VARCHAR}, #{TM,jdbcType=DATE}, #{AD_CD,jdbcType=CHAR}, #{DAY_CW,jdbcType=DECIMAL}, 
+      #{DAY_JW,jdbcType=DECIMAL}, #{NT,jdbcType=VARCHAR}, #{TS,jdbcType=TIMESTAMP}, #{ISSEND,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_TW_W">
+    update gs_tw_w
+    set AD_CD = #{AD_CD,jdbcType=CHAR},
+      DAY_CW = #{DAY_CW,jdbcType=DECIMAL},
+      DAY_JW = #{DAY_JW,jdbcType=DECIMAL},
+      NT = #{NT,jdbcType=VARCHAR},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      ISSEND = #{ISSEND,jdbcType=INTEGER}
+    where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+      and TM = #{TM,jdbcType=DATE}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select TW_CD, TM, AD_CD, DAY_CW, DAY_JW, NT, TS, ISSEND
+    from gs_tw_w
+    where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+      and TM = #{TM,jdbcType=DATE}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select TW_CD, TM, AD_CD, DAY_CW, DAY_JW, NT, TS, ISSEND
+    from gs_tw_w
+  </select>
+</mapper>

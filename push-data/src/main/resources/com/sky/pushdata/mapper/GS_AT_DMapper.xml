@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_AT_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_AT_D">
+    <id column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <id column="BDATE" jdbcType="VARCHAR" property="BDATE" />
+    <id column="ATN" jdbcType="VARCHAR" property="ATN" />
+    <result column="SE_TM" jdbcType="TIMESTAMP" property="SE_TM" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="YSDJ" jdbcType="DECIMAL" property="YSDJ" />
+    <result column="CT_W" jdbcType="DECIMAL" property="CT_W" />
+    <result column="PP_W" jdbcType="DECIMAL" property="PP_W" />
+    <result column="M_W" jdbcType="DECIMAL" property="m_W" />
+    <result column="ATD" jdbcType="DECIMAL" property="ATD" />
+    <result column="WSF" jdbcType="DECIMAL" property="WSF" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+    <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from gs_at_d
+    where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+      and BDATE = #{BDATE,jdbcType=VARCHAR}
+      and ATN = #{ATN,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_AT_D">
+    insert into gs_at_d (TW_CD, BDATE, ATN, 
+      SE_TM, AD_CD, YSDJ, 
+      CT_W, PP_W, M_W, ATD, 
+      WSF, TS, ISSEND, 
+      NT)
+    values (#{TW_CD,jdbcType=VARCHAR}, #{BDATE,jdbcType=VARCHAR}, #{ATN,jdbcType=VARCHAR}, 
+      #{SE_TM,jdbcType=TIMESTAMP}, #{AD_CD,jdbcType=CHAR}, #{YSDJ,jdbcType=DECIMAL}, 
+      #{CT_W,jdbcType=DECIMAL}, #{PP_W,jdbcType=DECIMAL}, #{m_W,jdbcType=DECIMAL}, #{ATD,jdbcType=DECIMAL}, 
+      #{WSF,jdbcType=DECIMAL}, #{TS,jdbcType=TIMESTAMP}, #{ISSEND,jdbcType=INTEGER}, 
+      #{NT,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_AT_D">
+    update gs_at_d
+    set SE_TM = #{SE_TM,jdbcType=TIMESTAMP},
+      AD_CD = #{AD_CD,jdbcType=CHAR},
+      YSDJ = #{YSDJ,jdbcType=DECIMAL},
+      CT_W = #{CT_W,jdbcType=DECIMAL},
+      PP_W = #{PP_W,jdbcType=DECIMAL},
+      M_W = #{m_W,jdbcType=DECIMAL},
+      ATD = #{ATD,jdbcType=DECIMAL},
+      WSF = #{WSF,jdbcType=DECIMAL},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      ISSEND = #{ISSEND,jdbcType=INTEGER},
+      NT = #{NT,jdbcType=LONGVARCHAR}
+    where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+      and BDATE = #{BDATE,jdbcType=VARCHAR}
+      and ATN = #{ATN,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select TW_CD, BDATE, ATN, SE_TM, AD_CD, YSDJ, CT_W, PP_W, M_W, ATD, WSF, TS, ISSEND, 
+    NT
+    from gs_at_d
+    where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+      and BDATE = #{BDATE,jdbcType=VARCHAR}
+      and ATN = #{ATN,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select TW_CD, BDATE, ATN, SE_TM, AD_CD, YSDJ, CT_W, PP_W, M_W, ATD, WSF, TS, ISSEND, 
+    NT
+    from gs_at_d
+  </select>
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_NMISP_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_NMISP_D">
+    <id column="RP_CD" jdbcType="VARCHAR" property="RP_CD" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <result column="ST_TP" jdbcType="CHAR" property="ST_TP" />
+    <result column="DOX" jdbcType="DECIMAL" property="DOX" />
+    <result column="CODMN" jdbcType="DECIMAL" property="CODMN" />
+    <result column="CODCR" jdbcType="DECIMAL" property="CODCR" />
+    <result column="BOD5" jdbcType="DECIMAL" property="BOD5" />
+    <result column="SO4" jdbcType="VARCHAR" property="SO4" />
+    <result column="TIC" jdbcType="VARCHAR" property="TIC" />
+    <result column="TN" jdbcType="VARCHAR" property="TN" />
+    <result column="NH3N" jdbcType="VARCHAR" property="NH3N" />
+    <result column="NH3" jdbcType="VARCHAR" property="NH3" />
+    <result column="NO2" jdbcType="VARCHAR" property="NO2" />
+    <result column="NO3" jdbcType="VARCHAR" property="NO3" />
+    <result column="KN" jdbcType="VARCHAR" property="KN" />
+    <result column="S2" jdbcType="VARCHAR" property="s2" />
+    <result column="CN" jdbcType="VARCHAR" property="CN" />
+    <result column="TCN" jdbcType="VARCHAR" property="TCN" />
+    <result column="EP" jdbcType="VARCHAR" property="EP" />
+    <result column="TP" jdbcType="VARCHAR" property="TP" />
+    <result column="YP" jdbcType="VARCHAR" property="YP" />
+    <result column="PO4" jdbcType="VARCHAR" property="PO4" />
+    <result column="DTP" jdbcType="VARCHAR" property="DTP" />
+    <result column="F" jdbcType="VARCHAR" property="f" />
+    <result column="CL" jdbcType="VARCHAR" property="CL" />
+    <result column="FCHL" jdbcType="VARCHAR" property="FCHL" />
+    <result column="ACHL" jdbcType="VARCHAR" property="ACHL" />
+    <result column="TCHL" jdbcType="VARCHAR" property="TCHL" />
+    <result column="I" jdbcType="VARCHAR" property="i" />
+    <result column="SI" jdbcType="VARCHAR" property="SI" />
+    <result column="B" jdbcType="VARCHAR" property="b" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="TEST_COM_TM" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+    <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from gs_nmisp_d
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_NMISP_D">
+    insert into gs_nmisp_d (RP_CD, SPT, TW_CD, 
+      AD_CD, TYPE, ST_TP, DOX, 
+      CODMN, CODCR, BOD5, 
+      SO4, TIC, TN, NH3N, 
+      NH3, NO2, NO3, KN, 
+      S2, CN, TCN, EP, 
+      TP, YP, PO4, DTP, 
+      F, CL, FCHL, ACHL, 
+      TCHL, I, SI, B, 
+      TEST_COM_TM, TS, ISSEND, 
+      NT)
+    values (#{RP_CD,jdbcType=VARCHAR}, #{SPT,jdbcType=TIMESTAMP}, #{TW_CD,jdbcType=VARCHAR}, 
+      #{AD_CD,jdbcType=CHAR}, #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{DOX,jdbcType=DECIMAL}, 
+      #{CODMN,jdbcType=DECIMAL}, #{CODCR,jdbcType=DECIMAL}, #{BOD5,jdbcType=DECIMAL}, 
+      #{SO4,jdbcType=VARCHAR}, #{TIC,jdbcType=VARCHAR}, #{TN,jdbcType=VARCHAR}, #{NH3N,jdbcType=VARCHAR}, 
+      #{NH3,jdbcType=VARCHAR}, #{NO2,jdbcType=VARCHAR}, #{NO3,jdbcType=VARCHAR}, #{KN,jdbcType=VARCHAR}, 
+      #{s2,jdbcType=VARCHAR}, #{CN,jdbcType=VARCHAR}, #{TCN,jdbcType=VARCHAR}, #{EP,jdbcType=VARCHAR}, 
+      #{TP,jdbcType=VARCHAR}, #{YP,jdbcType=VARCHAR}, #{PO4,jdbcType=VARCHAR}, #{DTP,jdbcType=VARCHAR}, 
+      #{f,jdbcType=VARCHAR}, #{CL,jdbcType=VARCHAR}, #{FCHL,jdbcType=VARCHAR}, #{ACHL,jdbcType=VARCHAR}, 
+      #{TCHL,jdbcType=VARCHAR}, #{i,jdbcType=VARCHAR}, #{SI,jdbcType=VARCHAR}, #{b,jdbcType=VARCHAR}, 
+      #{TEST_COM_TM,jdbcType=TIMESTAMP}, #{TS,jdbcType=TIMESTAMP}, #{ISSEND,jdbcType=INTEGER}, 
+      #{NT,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_NMISP_D">
+    update gs_nmisp_d
+    set TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      AD_CD = #{AD_CD,jdbcType=CHAR},
+      TYPE = #{TYPE,jdbcType=CHAR},
+      ST_TP = #{ST_TP,jdbcType=CHAR},
+      DOX = #{DOX,jdbcType=DECIMAL},
+      CODMN = #{CODMN,jdbcType=DECIMAL},
+      CODCR = #{CODCR,jdbcType=DECIMAL},
+      BOD5 = #{BOD5,jdbcType=DECIMAL},
+      SO4 = #{SO4,jdbcType=VARCHAR},
+      TIC = #{TIC,jdbcType=VARCHAR},
+      TN = #{TN,jdbcType=VARCHAR},
+      NH3N = #{NH3N,jdbcType=VARCHAR},
+      NH3 = #{NH3,jdbcType=VARCHAR},
+      NO2 = #{NO2,jdbcType=VARCHAR},
+      NO3 = #{NO3,jdbcType=VARCHAR},
+      KN = #{KN,jdbcType=VARCHAR},
+      S2 = #{s2,jdbcType=VARCHAR},
+      CN = #{CN,jdbcType=VARCHAR},
+      TCN = #{TCN,jdbcType=VARCHAR},
+      EP = #{EP,jdbcType=VARCHAR},
+      TP = #{TP,jdbcType=VARCHAR},
+      YP = #{YP,jdbcType=VARCHAR},
+      PO4 = #{PO4,jdbcType=VARCHAR},
+      DTP = #{DTP,jdbcType=VARCHAR},
+      F = #{f,jdbcType=VARCHAR},
+      CL = #{CL,jdbcType=VARCHAR},
+      FCHL = #{FCHL,jdbcType=VARCHAR},
+      ACHL = #{ACHL,jdbcType=VARCHAR},
+      TCHL = #{TCHL,jdbcType=VARCHAR},
+      I = #{i,jdbcType=VARCHAR},
+      SI = #{SI,jdbcType=VARCHAR},
+      B = #{b,jdbcType=VARCHAR},
+      TEST_COM_TM = #{TEST_COM_TM,jdbcType=TIMESTAMP},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      ISSEND = #{ISSEND,jdbcType=INTEGER},
+      NT = #{NT,jdbcType=LONGVARCHAR}
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select RP_CD, SPT, TW_CD, AD_CD, TYPE, ST_TP, DOX, CODMN, CODCR, BOD5, SO4, TIC, 
+    TN, NH3N, NH3, NO2, NO3, KN, S2, CN, TCN, EP, TP, YP, PO4, DTP, F, CL, FCHL, ACHL, 
+    TCHL, I, SI, B, TEST_COM_TM, TS, ISSEND, NT
+    from gs_nmisp_d
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
+      and SPT = #{SPT,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select RP_CD, SPT, TW_CD, AD_CD, TYPE, ST_TP, DOX, CODMN, CODCR, BOD5, SO4, TIC, 
+    TN, NH3N, NH3, NO2, NO3, KN, S2, CN, TCN, EP, TP, YP, PO4, DTP, F, CL, FCHL, ACHL, 
+    TCHL, I, SI, B, TEST_COM_TM, TS, ISSEND, NT
+    from gs_nmisp_d
+  </select>
+</mapper>

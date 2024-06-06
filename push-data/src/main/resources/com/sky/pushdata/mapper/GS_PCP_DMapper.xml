@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_PCP_DMapper">
+  <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_PCP_D">
+    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
+    <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
+    <result column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <result column="ST_TP" jdbcType="CHAR" property="ST_TP" />
+    <result column="W_TP" jdbcType="CHAR" property="w_TP" />
+    <result column="FILE_CD" jdbcType="VARCHAR" property="FILE_CD" />
+    <result column="ADDR" jdbcType="VARCHAR" property="ADDR" />
+    <result column="JYR_NM" jdbcType="VARCHAR" property="JYR_NM" />
+    <result column="AIRT" jdbcType="DECIMAL" property="AIRT" />
+    <result column="ATM" jdbcType="DECIMAL" property="ATM" />
+    <result column="ILMT" jdbcType="DECIMAL" property="ILMT" />
+    <result column="ILMI" jdbcType="DECIMAL" property="ILMI" />
+    <result column="WT" jdbcType="DECIMAL" property="WT" />
+    <result column="PH" jdbcType="DECIMAL" property="PH" />
+    <result column="COND" jdbcType="DECIMAL" property="COND" />
+    <result column="REDOX" jdbcType="DECIMAL" property="REDOX" />
+    <result column="CHROMA" jdbcType="VARCHAR" property="CHROMA" />
+    <result column="SMELL" jdbcType="CHAR" property="SMELL" />
+    <result column="NEOBJ" jdbcType="VARCHAR" property="NEOBJ" />
+    <result column="TURB" jdbcType="VARCHAR" property="TURB" />
+    <result column="CLARITY" jdbcType="VARCHAR" property="CLARITY" />
+    <result column="SS" jdbcType="VARCHAR" property="SS" />
+    <result column="MNDG" jdbcType="VARCHAR" property="MNDG" />
+    <result column="ACID" jdbcType="VARCHAR" property="ACID" />
+    <result column="TALKY" jdbcType="VARCHAR" property="TALKY" />
+    <result column="HCO3" jdbcType="VARCHAR" property="HCO3" />
+    <result column="CO3" jdbcType="VARCHAR" property="CO3" />
+    <result column="DSCO2" jdbcType="VARCHAR" property="DSCO2" />
+    <result column="AGCO2" jdbcType="VARCHAR" property="AGCO2" />
+    <result column="TSOLID" jdbcType="VARCHAR" property="TSOLID" />
+    <result column="TDS" jdbcType="VARCHAR" property="TDS" />
+    <result column="TALATV" jdbcType="VARCHAR" property="TALATV" />
+    <result column="TBTATV" jdbcType="VARCHAR" property="TBTATV" />
+    <result column="SH_TYPE" jdbcType="CHAR" property="SH_TYPE" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="TEST_COM_TM" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+    <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
+    <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.util.Date">
+    delete from gs_pcp_d
+    where SPT = #{SPT,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_PCP_D">
+    insert into gs_pcp_d (SPT, TW_CD, AD_CD, 
+      TYPE, ST_TP, W_TP, FILE_CD, 
+      ADDR, JYR_NM, AIRT, 
+      ATM, ILMT, ILMI, WT, 
+      PH, COND, REDOX, CHROMA, 
+      SMELL, NEOBJ, TURB, CLARITY, 
+      SS, MNDG, ACID, TALKY, 
+      HCO3, CO3, DSCO2, AGCO2, 
+      TSOLID, TDS, TALATV, 
+      TBTATV, SH_TYPE, TEST_COM_TM, 
+      TS, ISSEND, NT
+      )
+    values (#{SPT,jdbcType=TIMESTAMP}, #{TW_CD,jdbcType=VARCHAR}, #{AD_CD,jdbcType=CHAR}, 
+      #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{w_TP,jdbcType=CHAR}, #{FILE_CD,jdbcType=VARCHAR}, 
+      #{ADDR,jdbcType=VARCHAR}, #{JYR_NM,jdbcType=VARCHAR}, #{AIRT,jdbcType=DECIMAL}, 
+      #{ATM,jdbcType=DECIMAL}, #{ILMT,jdbcType=DECIMAL}, #{ILMI,jdbcType=DECIMAL}, #{WT,jdbcType=DECIMAL}, 
+      #{PH,jdbcType=DECIMAL}, #{COND,jdbcType=DECIMAL}, #{REDOX,jdbcType=DECIMAL}, #{CHROMA,jdbcType=VARCHAR}, 
+      #{SMELL,jdbcType=CHAR}, #{NEOBJ,jdbcType=VARCHAR}, #{TURB,jdbcType=VARCHAR}, #{CLARITY,jdbcType=VARCHAR}, 
+      #{SS,jdbcType=VARCHAR}, #{MNDG,jdbcType=VARCHAR}, #{ACID,jdbcType=VARCHAR}, #{TALKY,jdbcType=VARCHAR}, 
+      #{HCO3,jdbcType=VARCHAR}, #{CO3,jdbcType=VARCHAR}, #{DSCO2,jdbcType=VARCHAR}, #{AGCO2,jdbcType=VARCHAR}, 
+      #{TSOLID,jdbcType=VARCHAR}, #{TDS,jdbcType=VARCHAR}, #{TALATV,jdbcType=VARCHAR}, 
+      #{TBTATV,jdbcType=VARCHAR}, #{SH_TYPE,jdbcType=CHAR}, #{TEST_COM_TM,jdbcType=TIMESTAMP}, 
+      #{TS,jdbcType=TIMESTAMP}, #{ISSEND,jdbcType=INTEGER}, #{NT,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_PCP_D">
+    update gs_pcp_d
+    set TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      AD_CD = #{AD_CD,jdbcType=CHAR},
+      TYPE = #{TYPE,jdbcType=CHAR},
+      ST_TP = #{ST_TP,jdbcType=CHAR},
+      W_TP = #{w_TP,jdbcType=CHAR},
+      FILE_CD = #{FILE_CD,jdbcType=VARCHAR},
+      ADDR = #{ADDR,jdbcType=VARCHAR},
+      JYR_NM = #{JYR_NM,jdbcType=VARCHAR},
+      AIRT = #{AIRT,jdbcType=DECIMAL},
+      ATM = #{ATM,jdbcType=DECIMAL},
+      ILMT = #{ILMT,jdbcType=DECIMAL},
+      ILMI = #{ILMI,jdbcType=DECIMAL},
+      WT = #{WT,jdbcType=DECIMAL},
+      PH = #{PH,jdbcType=DECIMAL},
+      COND = #{COND,jdbcType=DECIMAL},
+      REDOX = #{REDOX,jdbcType=DECIMAL},
+      CHROMA = #{CHROMA,jdbcType=VARCHAR},
+      SMELL = #{SMELL,jdbcType=CHAR},
+      NEOBJ = #{NEOBJ,jdbcType=VARCHAR},
+      TURB = #{TURB,jdbcType=VARCHAR},
+      CLARITY = #{CLARITY,jdbcType=VARCHAR},
+      SS = #{SS,jdbcType=VARCHAR},
+      MNDG = #{MNDG,jdbcType=VARCHAR},
+      ACID = #{ACID,jdbcType=VARCHAR},
+      TALKY = #{TALKY,jdbcType=VARCHAR},
+      HCO3 = #{HCO3,jdbcType=VARCHAR},
+      CO3 = #{CO3,jdbcType=VARCHAR},
+      DSCO2 = #{DSCO2,jdbcType=VARCHAR},
+      AGCO2 = #{AGCO2,jdbcType=VARCHAR},
+      TSOLID = #{TSOLID,jdbcType=VARCHAR},
+      TDS = #{TDS,jdbcType=VARCHAR},
+      TALATV = #{TALATV,jdbcType=VARCHAR},
+      TBTATV = #{TBTATV,jdbcType=VARCHAR},
+      SH_TYPE = #{SH_TYPE,jdbcType=CHAR},
+      TEST_COM_TM = #{TEST_COM_TM,jdbcType=TIMESTAMP},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      ISSEND = #{ISSEND,jdbcType=INTEGER},
+      NT = #{NT,jdbcType=LONGVARCHAR}
+    where SPT = #{SPT,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.util.Date" resultMap="BaseResultMap">
+    select SPT, TW_CD, AD_CD, TYPE, ST_TP, W_TP, FILE_CD, ADDR, JYR_NM, AIRT, ATM, ILMT, 
+    ILMI, WT, PH, COND, REDOX, CHROMA, SMELL, NEOBJ, TURB, CLARITY, SS, MNDG, ACID, TALKY, 
+    HCO3, CO3, DSCO2, AGCO2, TSOLID, TDS, TALATV, TBTATV, SH_TYPE, TEST_COM_TM, TS, ISSEND, 
+    NT
+    from gs_pcp_d
+    where SPT = #{SPT,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SPT, TW_CD, AD_CD, TYPE, ST_TP, W_TP, FILE_CD, ADDR, JYR_NM, AIRT, ATM, ILMT, 
+    ILMI, WT, PH, COND, REDOX, CHROMA, SMELL, NEOBJ, TURB, CLARITY, SS, MNDG, ACID, TALKY, 
+    HCO3, CO3, DSCO2, AGCO2, TSOLID, TDS, TALATV, TBTATV, SH_TYPE, TEST_COM_TM, TS, ISSEND, 
+    NT
+    from gs_pcp_d
+  </select>
+</mapper>
