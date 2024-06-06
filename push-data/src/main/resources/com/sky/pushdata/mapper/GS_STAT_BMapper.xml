@@ -27,16 +27,16 @@
       and ST_NM = #{ST_NM,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_STAT_B">
-    insert into gs_stat_b (STCD, ST_NM, AD_CD, 
-      TW_CD, ST_MPWM, ST_WQM, ST_MP, 
-      MON_TP, TH_D, LGTD, LTTD, 
-      LOC, STBK, ADAG, MNAG, 
-      TS, NT, ISSEND)
-    values (#{STCD,jdbcType=VARCHAR}, #{ST_NM,jdbcType=VARCHAR}, #{AD_CD,jdbcType=CHAR}, 
-      #{TW_CD,jdbcType=VARCHAR}, #{ST_MPWM,jdbcType=CHAR}, #{ST_WQM,jdbcType=CHAR}, #{ST_MP,jdbcType=CHAR}, 
-      #{MON_TP,jdbcType=CHAR}, #{TH_D,jdbcType=DECIMAL}, #{LGTD,jdbcType=DECIMAL}, #{LTTD,jdbcType=DECIMAL}, 
-      #{LOC,jdbcType=VARCHAR}, #{STBK,jdbcType=CHAR}, #{ADAG,jdbcType=VARCHAR}, #{MNAG,jdbcType=VARCHAR}, 
-      #{TS,jdbcType=TIMESTAMP}, #{NT,jdbcType=VARCHAR}, #{ISSEND,jdbcType=INTEGER})
+    insert into gs_stat_b (STCD, ST_NM, AD_CD,
+                           TW_CD, ST_MPWM, ST_WQM, ST_MP,
+                           MON_TP, TH_D, LGTD, LTTD,
+                           LOC, STBK, ADAG, MNAG,
+                           TS, NT, ISSEND)
+    values (#{STCD,jdbcType=VARCHAR}, #{ST_NM,jdbcType=VARCHAR}, #{AD_CD,jdbcType=CHAR},
+            #{TW_CD,jdbcType=VARCHAR}, #{ST_MPWM,jdbcType=CHAR}, #{ST_WQM,jdbcType=CHAR}, #{ST_MP,jdbcType=CHAR},
+            #{MON_TP,jdbcType=CHAR}, #{TH_D,jdbcType=DECIMAL}, #{LGTD,jdbcType=DECIMAL}, #{LTTD,jdbcType=DECIMAL},
+            #{LOC,jdbcType=VARCHAR}, #{STBK,jdbcType=CHAR}, #{ADAG,jdbcType=VARCHAR}, #{MNAG,jdbcType=VARCHAR},
+            #{TS,jdbcType=TIMESTAMP}, #{NT,jdbcType=VARCHAR}, #{ISSEND,jdbcType=INTEGER})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_STAT_B">
     update gs_stat_b
