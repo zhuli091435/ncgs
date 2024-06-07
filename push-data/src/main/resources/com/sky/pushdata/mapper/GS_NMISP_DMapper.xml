@@ -3,8 +3,8 @@
 <mapper namespace="com.sky.pushdata.mapper.GS_NMISP_DMapper">
   <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_NMISP_D">
     <id column="RP_CD" jdbcType="VARCHAR" property="RP_CD" />
-    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
     <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="SPT" jdbcType="TIMESTAMP" property="SPT" />
     <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
     <result column="TYPE" jdbcType="CHAR" property="TYPE" />
     <result column="ST_TP" jdbcType="CHAR" property="ST_TP" />
@@ -41,13 +41,12 @@
     <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
     <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="map">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from gs_nmisp_d
     where RP_CD = #{RP_CD,jdbcType=VARCHAR}
-      and SPT = #{SPT,jdbcType=TIMESTAMP}
   </delete>
   <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_NMISP_D">
-    insert into gs_nmisp_d (RP_CD, SPT, TW_CD, 
+    insert into gs_nmisp_d (RP_CD, TW_CD, SPT, 
       AD_CD, TYPE, ST_TP, DOX, 
       CODMN, CODCR, BOD5, 
       SO4, TIC, TN, NH3N, 
@@ -58,7 +57,7 @@
       TCHL, I, SI, B, 
       TEST_COM_TM, TS, ISSEND, 
       NT)
-    values (#{RP_CD,jdbcType=VARCHAR}, #{SPT,jdbcType=TIMESTAMP}, #{TW_CD,jdbcType=VARCHAR}, 
+    values (#{RP_CD,jdbcType=VARCHAR}, #{TW_CD,jdbcType=VARCHAR}, #{SPT,jdbcType=TIMESTAMP}, 
       #{AD_CD,jdbcType=CHAR}, #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{DOX,jdbcType=DECIMAL}, 
       #{CODMN,jdbcType=DECIMAL}, #{CODCR,jdbcType=DECIMAL}, #{BOD5,jdbcType=DECIMAL}, 
       #{SO4,jdbcType=VARCHAR}, #{TIC,jdbcType=VARCHAR}, #{TN,jdbcType=VARCHAR}, #{NH3N,jdbcType=VARCHAR}, 
@@ -73,6 +72,7 @@
   <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_NMISP_D">
     update gs_nmisp_d
     set TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      SPT = #{SPT,jdbcType=TIMESTAMP},
       AD_CD = #{AD_CD,jdbcType=CHAR},
       TYPE = #{TYPE,jdbcType=CHAR},
       ST_TP = #{ST_TP,jdbcType=CHAR},
@@ -109,18 +109,16 @@
       ISSEND = #{ISSEND,jdbcType=INTEGER},
       NT = #{NT,jdbcType=LONGVARCHAR}
     where RP_CD = #{RP_CD,jdbcType=VARCHAR}
-      and SPT = #{SPT,jdbcType=TIMESTAMP}
   </update>
-  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
-    select RP_CD, SPT, TW_CD, AD_CD, TYPE, ST_TP, DOX, CODMN, CODCR, BOD5, SO4, TIC, 
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select RP_CD, TW_CD, SPT, AD_CD, TYPE, ST_TP, DOX, CODMN, CODCR, BOD5, SO4, TIC, 
     TN, NH3N, NH3, NO2, NO3, KN, S2, CN, TCN, EP, TP, YP, PO4, DTP, F, CL, FCHL, ACHL, 
     TCHL, I, SI, B, TEST_COM_TM, TS, ISSEND, NT
     from gs_nmisp_d
     where RP_CD = #{RP_CD,jdbcType=VARCHAR}
-      and SPT = #{SPT,jdbcType=TIMESTAMP}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select RP_CD, SPT, TW_CD, AD_CD, TYPE, ST_TP, DOX, CODMN, CODCR, BOD5, SO4, TIC, 
+    select RP_CD, TW_CD, SPT, AD_CD, TYPE, ST_TP, DOX, CODMN, CODCR, BOD5, SO4, TIC, 
     TN, NH3N, NH3, NO2, NO3, KN, S2, CN, TCN, EP, TP, YP, PO4, DTP, F, CL, FCHL, ACHL, 
     TCHL, I, SI, B, TEST_COM_TM, TS, ISSEND, NT
     from gs_nmisp_d

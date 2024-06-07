@@ -3,9 +3,11 @@ package com.sky.pushdata.pojo;
 import java.util.Date;
 
 public class GS_MOOOP_D {
-    private Date SPT;
+    private String RP_CD;
 
     private String TW_CD;
+
+    private Date SPT;
 
     private String AD_CD;
 
@@ -49,12 +51,12 @@ public class GS_MOOOP_D {
 
     private String NT;
 
-    public Date getSPT() {
-        return SPT;
+    public String getRP_CD() {
+        return RP_CD;
     }
 
-    public void setSPT(Date SPT) {
-        this.SPT = SPT;
+    public void setRP_CD(String RP_CD) {
+        this.RP_CD = RP_CD == null ? null : RP_CD.trim();
     }
 
     public String getTW_CD() {
@@ -63,6 +65,14 @@ public class GS_MOOOP_D {
 
     public void setTW_CD(String TW_CD) {
         this.TW_CD = TW_CD == null ? null : TW_CD.trim();
+    }
+
+    public Date getSPT() {
+        return SPT;
+    }
+
+    public void setSPT(Date SPT) {
+        this.SPT = SPT;
     }
 
     public String getAD_CD() {

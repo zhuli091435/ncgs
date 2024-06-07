@@ -3,8 +3,8 @@
 <mapper namespace="com.sky.pushdata.mapper.GS_AAACP_DMapper">
   <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_AAACP_D">
     <id column="RP_CD" jdbcType="VARCHAR" property="RP_CD" />
-    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
     <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="SPT" jdbcType="TIMESTAMP" property="SPT" />
     <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
     <result column="TYPE" jdbcType="CHAR" property="TYPE" />
     <result column="ST_TP" jdbcType="CHAR" property="ST_TP" />
@@ -33,13 +33,12 @@
     <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
     <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="map">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from gs_aaacp_d
     where RP_CD = #{RP_CD,jdbcType=VARCHAR}
-      and SPT = #{SPT,jdbcType=TIMESTAMP}
   </delete>
   <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_AAACP_D">
-    insert into gs_aaacp_d (RP_CD, SPT, TW_CD, 
+    insert into gs_aaacp_d (RP_CD, TW_CD, SPT, 
       AD_CD, TYPE, ST_TP, ERLJW, 
       SLJW, SILHT, SXJW, 
       ERLYW12, HYLBW, HYQL, 
@@ -49,7 +48,7 @@
       BXQ, BXXAN, BXQI, TEST_COM_TM, 
       TS, ISSEND, NT
       )
-    values (#{RP_CD,jdbcType=VARCHAR}, #{SPT,jdbcType=TIMESTAMP}, #{TW_CD,jdbcType=VARCHAR}, 
+    values (#{RP_CD,jdbcType=VARCHAR}, #{TW_CD,jdbcType=VARCHAR}, #{SPT,jdbcType=TIMESTAMP}, 
       #{AD_CD,jdbcType=CHAR}, #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{ERLJW,jdbcType=VARCHAR}, 
       #{SLJW,jdbcType=VARCHAR}, #{SILHT,jdbcType=VARCHAR}, #{SXJW,jdbcType=VARCHAR}, 
       #{ERLYW12,jdbcType=VARCHAR}, #{HYLBW,jdbcType=VARCHAR}, #{HYQL,jdbcType=VARCHAR}, 
@@ -63,6 +62,7 @@
   <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_AAACP_D">
     update gs_aaacp_d
     set TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      SPT = #{SPT,jdbcType=TIMESTAMP},
       AD_CD = #{AD_CD,jdbcType=CHAR},
       TYPE = #{TYPE,jdbcType=CHAR},
       ST_TP = #{ST_TP,jdbcType=CHAR},
@@ -91,18 +91,16 @@
       ISSEND = #{ISSEND,jdbcType=INTEGER},
       NT = #{NT,jdbcType=LONGVARCHAR}
     where RP_CD = #{RP_CD,jdbcType=VARCHAR}
-      and SPT = #{SPT,jdbcType=TIMESTAMP}
   </update>
-  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
-    select RP_CD, SPT, TW_CD, AD_CD, TYPE, ST_TP, ERLJW, SLJW, SILHT, SXJW, ERLYW12, 
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select RP_CD, TW_CD, SPT, AD_CD, TYPE, ST_TP, ERLJW, SLJW, SILHT, SXJW, ERLYW12, 
     HYLBW, HYQL, LYX, ERLYX11, ERLYX12, SLYX, SILYX, LDERX, LLDERX, JQ, YQ, SLYQ, BXQ, 
     BXXAN, BXQI, TEST_COM_TM, TS, ISSEND, NT
     from gs_aaacp_d
     where RP_CD = #{RP_CD,jdbcType=VARCHAR}
-      and SPT = #{SPT,jdbcType=TIMESTAMP}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select RP_CD, SPT, TW_CD, AD_CD, TYPE, ST_TP, ERLJW, SLJW, SILHT, SXJW, ERLYW12, 
+    select RP_CD, TW_CD, SPT, AD_CD, TYPE, ST_TP, ERLJW, SLJW, SILHT, SXJW, ERLYW12, 
     HYLBW, HYQL, LYX, ERLYX11, ERLYX12, SLYX, SILYX, LDERX, LLDERX, JQ, YQ, SLYQ, BXQ, 
     BXXAN, BXQI, TEST_COM_TM, TS, ISSEND, NT
     from gs_aaacp_d

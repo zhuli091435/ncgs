@@ -3,6 +3,8 @@ package com.sky.pushdata.pojo;
 import java.util.Date;
 
 public class GS_MISP_D {
+    private String RP_CD;
+
     private String TW_CD;
 
     private Date SPT;
@@ -76,6 +78,14 @@ public class GS_MISP_D {
     private Integer ISSEND;
 
     private String NT;
+
+    public String getRP_CD() {
+        return RP_CD;
+    }
+
+    public void setRP_CD(String RP_CD) {
+        this.RP_CD = RP_CD == null ? null : RP_CD.trim();
+    }
 
     public String getTW_CD() {
         return TW_CD;

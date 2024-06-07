@@ -41,6 +41,43 @@ public class DataServiceController {
     //GS_MPWM_D
     @Resource
     private GS_MPWM_DService gsMpwmDService;
+    @Resource
+    private GS_AWQMD_DService gsAwqmdDService;
+
+    //GS_PCP_D
+    @Resource
+    private GS_PCP_DService gsPcpDService;
+
+    //GS_NMISP_D
+    @Resource
+    private GS_NMISP_DService gsNmispDService;
+
+    //GS_MISP_D
+    @Resource
+    private GS_MISP_DService gsMispDService;
+
+    //GS_PHNCP_D
+    @Resource
+    private GS_PHNCP_DService gsPhncpDService;
+    @Resource
+    private GS_OPCP_DService gsOpcpDService;
+
+    @Resource
+    private GS_BCP_DService gsBcpDService;
+
+    @Resource
+    private GS_AAACP_DService gsAaacpDService;
+
+    @Resource
+    private GS_MOOOP_DService gsMooopDService;
+    @Resource
+    private GS_WBHP_DService gsWbhpDService;
+
+    @Resource
+    private GS_ATG_WService gsAtgWService;
+
+    @Resource
+    private GS_AT_DService gsAtDService;
 
     @RequestMapping("/push/data")
     public void pushData(String content, String tableName) {
@@ -128,40 +165,695 @@ public class DataServiceController {
 
     }
 
-    private void handleGS_AT_D(String content) {
+    private HashMap<String, Object> handleGS_AT_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_AT_D.class);
+        List<GS_AT_D> list = objectMapper.readValue(content, javaType);
+        for (GS_AT_D item : list) {
+
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getBDATE() == null || item.getBDATE().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "BDATE不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getATN() == null || item.getATN().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ATN不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSE_TM() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SE_TM不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getYSDJ() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "YSDJ不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_AT_D mode = gsAtDService.getByPrimaryKey(item.getTW_CD(), item.getBDATE(), item.getATN());
+            if (mode != null) {
+                int res = gsAtDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsAtDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_ATG_W(String content) {
+    private HashMap<String, Object> handleGS_ATG_W(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_ATG_W.class);
+        List<GS_ATG_W> list = objectMapper.readValue(content, javaType);
+        for (GS_ATG_W item : list) {
+
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSTARTTM() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "STARTTM不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getENDTM() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ENDTM不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_ATG_W mode = gsAtgWService.getByPrimaryKey(item.getTW_CD(), item.getSTARTTM(), item.getENDTM());
+            if (mode != null) {
+                int res = gsAtgWService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsAtgWService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_WBHP_D(String content) {
+    private HashMap<String, Object> handleGS_WBHP_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_WBHP_D.class);
+        List<GS_WBHP_D> list = objectMapper.readValue(content, javaType);
+        for (GS_WBHP_D item : list) {
+            if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSPT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SPT不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTYPE() == null || item.getTYPE().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TYPE不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getST_TP() == null || item.getST_TP().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ST_TP不能为空");
+                return stringObjectHashMap;
+            }
+
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_WBHP_D mode = gsWbhpDService.getByPrimaryKey(item.getRP_CD());
+            if (mode != null) {
+                int res = gsWbhpDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsWbhpDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_MOOOP_D(String content) {
+    private HashMap<String, Object> handleGS_MOOOP_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_MOOOP_D.class);
+        List<GS_MOOOP_D> list = objectMapper.readValue(content, javaType);
+        for (GS_MOOOP_D item : list) {
+            if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSPT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SPT不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTYPE() == null || item.getTYPE().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TYPE不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getST_TP() == null || item.getST_TP().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ST_TP不能为空");
+                return stringObjectHashMap;
+            }
+
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_MOOOP_D mode = gsMooopDService.getByPrimaryKey(item.getRP_CD());
+            if (mode != null) {
+                int res = gsMooopDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsMooopDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_AAACP_D(String content) {
+    private HashMap<String, Object> handleGS_AAACP_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_AAACP_D.class);
+        List<GS_AAACP_D> list = objectMapper.readValue(content, javaType);
+        for (GS_AAACP_D item : list) {
+            if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSPT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SPT不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTYPE() == null || item.getTYPE().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TYPE不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getST_TP() == null || item.getST_TP().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ST_TP不能为空");
+                return stringObjectHashMap;
+            }
+
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_AAACP_D mode = gsAaacpDService.getByPrimaryKey(item.getRP_CD());
+            if (mode != null) {
+                int res = gsAaacpDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsAaacpDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_BCP_D(String content) {
+    private HashMap<String, Object> handleGS_BCP_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_BCP_D.class);
+        List<GS_BCP_D> list = objectMapper.readValue(content, javaType);
+        for (GS_BCP_D item : list) {
+            if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSPT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SPT不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTYPE() == null || item.getTYPE().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TYPE不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getST_TP() == null || item.getST_TP().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ST_TP不能为空");
+                return stringObjectHashMap;
+            }
+
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_BCP_D mode = gsBcpDService.getByPrimaryKey(item.getRP_CD());
+            if (mode != null) {
+                int res = gsBcpDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsBcpDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_OPCP_D(String content) {
+    private HashMap<String, Object> handleGS_OPCP_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_OPCP_D.class);
+        List<GS_OPCP_D> list = objectMapper.readValue(content, javaType);
+        for (GS_OPCP_D item : list) {
+            if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSPT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SPT不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTYPE() == null || item.getTYPE().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TYPE不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getST_TP() == null || item.getST_TP().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ST_TP不能为空");
+                return stringObjectHashMap;
+            }
+
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_OPCP_D mode = gsOpcpDService.getByPrimaryKey(item.getRP_CD());
+            if (mode != null) {
+                int res = gsOpcpDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsOpcpDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_PHNCP_D(String content) {
+    private HashMap<String, Object> handleGS_PHNCP_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_PHNCP_D.class);
+        List<GS_PHNCP_D> list = objectMapper.readValue(content, javaType);
+        for (GS_PHNCP_D item : list) {
+            if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSPT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SPT不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTYPE() == null || item.getTYPE().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TYPE不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getST_TP() == null || item.getST_TP().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ST_TP不能为空");
+                return stringObjectHashMap;
+            }
+
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_PHNCP_D mode = gsPhncpDService.getByPrimaryKey(item.getRP_CD());
+            if (mode != null) {
+                int res = gsPhncpDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsPhncpDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_MISP_D(String content) {
+    private HashMap<String, Object> handleGS_MISP_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_MISP_D.class);
+        List<GS_MISP_D> list = objectMapper.readValue(content, javaType);
+        for (GS_MISP_D item : list) {
+            if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSPT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SPT不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTYPE() == null || item.getTYPE().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TYPE不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getST_TP() == null || item.getST_TP().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ST_TP不能为空");
+                return stringObjectHashMap;
+            }
+
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_MISP_D mode = gsMispDService.getByPrimaryKey(item.getRP_CD());
+            if (mode != null) {
+                int res = gsMispDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsMispDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_NMISP_D(String content) {
+    private HashMap<String, Object> handleGS_NMISP_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_NMISP_D.class);
+        List<GS_NMISP_D> list = objectMapper.readValue(content, javaType);
+        for (GS_NMISP_D item : list) {
+            if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSPT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SPT不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTYPE() == null || item.getTYPE().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TYPE不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getST_TP() == null || item.getST_TP().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ST_TP不能为空");
+                return stringObjectHashMap;
+            }
+
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_NMISP_D mode = gsNmispDService.getByPrimaryKey(item.getRP_CD());
+            if (mode != null) {
+                int res = gsNmispDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsNmispDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_PCP_D(String content) {
+    private HashMap<String, Object> handleGS_PCP_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_PCP_D.class);
+        List<GS_PCP_D> list = objectMapper.readValue(content, javaType);
+        for (GS_PCP_D item : list) {
+            if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSPT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SPT不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTYPE() == null || item.getTYPE().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TYPE不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getST_TP() == null || item.getST_TP().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ST_TP不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getW_TP() == null || item.getW_TP().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "W_TP不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getADDR() == null || item.getADDR().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "ADDR不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAIRT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AIRT不能为空");
+                return stringObjectHashMap;
+            }
+
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_PCP_D mode = gsPcpDService.getByPrimaryKey(item.getRP_CD());
+            if (mode != null) {
+                int res = gsPcpDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsPcpDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
-    private void handleGS_AWQMD_D(String content) {
+    private HashMap<String, Object> handleGS_AWQMD_D(String content) throws JsonProcessingException {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_AWQMD_D.class);
+        List<GS_AWQMD_D> list = objectMapper.readValue(content, javaType);
+        for (GS_AWQMD_D item : list) {
+            if (item.getSTCD() == null || item.getSTCD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "STCD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getSPT() == null) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "SPT不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getAD_CD() == null || item.getAD_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "AD_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            item.setTS(new Date());
+            item.setISSEND(200);
+
+            GS_AWQMD_D mode = gsAwqmdDService.getByPrimaryKey(item.getSTCD(), item.getSPT());
+            if (mode != null) {
+                int res = gsAwqmdDService.modifyByPrimaryKey(item);
+            } else {
+                int res = gsAwqmdDService.add(item);
+            }
+        }
+        stringObjectHashMap.put("code", 0);
+        stringObjectHashMap.put("message", "");
+        return stringObjectHashMap;
     }
 
     private HashMap<String, Object> handleGS_MPWM_D(String content) throws JsonProcessingException {

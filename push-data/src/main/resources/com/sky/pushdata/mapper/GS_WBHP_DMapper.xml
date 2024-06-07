@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sky.pushdata.mapper.GS_WBHP_DMapper">
   <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_WBHP_D">
-    <id column="SPT" jdbcType="TIMESTAMP" property="SPT" />
+    <id column="RP_CD" jdbcType="VARCHAR" property="RP_CD" />
     <result column="TW_CD" jdbcType="VARCHAR" property="TW_CD" />
+    <result column="SPT" jdbcType="TIMESTAMP" property="SPT" />
     <result column="AD_CD" jdbcType="CHAR" property="AD_CD" />
     <result column="TYPE" jdbcType="CHAR" property="TYPE" />
     <result column="ST_TP" jdbcType="CHAR" property="ST_TP" />
@@ -17,25 +18,26 @@
     <result column="ISSEND" jdbcType="INTEGER" property="ISSEND" />
     <result column="NT" jdbcType="LONGVARCHAR" property="NT" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.util.Date">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from gs_wbhp_d
-    where SPT = #{SPT,jdbcType=TIMESTAMP}
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_WBHP_D">
-    insert into gs_wbhp_d (SPT, TW_CD, AD_CD, 
-      TYPE, ST_TP, BCTC, TCG, 
-      FCG, FAG, FS, TEST_COM_TM, 
-      TS, ISSEND, NT
-      )
-    values (#{SPT,jdbcType=TIMESTAMP}, #{TW_CD,jdbcType=VARCHAR}, #{AD_CD,jdbcType=CHAR}, 
-      #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{BCTC,jdbcType=VARCHAR}, #{TCG,jdbcType=VARCHAR}, 
-      #{FCG,jdbcType=VARCHAR}, #{FAG,jdbcType=VARCHAR}, #{FS,jdbcType=VARCHAR}, #{TEST_COM_TM,jdbcType=TIMESTAMP}, 
-      #{TS,jdbcType=TIMESTAMP}, #{ISSEND,jdbcType=INTEGER}, #{NT,jdbcType=LONGVARCHAR}
-      )
+    insert into gs_wbhp_d (RP_CD, TW_CD, SPT, 
+      AD_CD, TYPE, ST_TP, BCTC, 
+      TCG, FCG, FAG, FS, 
+      TEST_COM_TM, TS, ISSEND, 
+      NT)
+    values (#{RP_CD,jdbcType=VARCHAR}, #{TW_CD,jdbcType=VARCHAR}, #{SPT,jdbcType=TIMESTAMP}, 
+      #{AD_CD,jdbcType=CHAR}, #{TYPE,jdbcType=CHAR}, #{ST_TP,jdbcType=CHAR}, #{BCTC,jdbcType=VARCHAR}, 
+      #{TCG,jdbcType=VARCHAR}, #{FCG,jdbcType=VARCHAR}, #{FAG,jdbcType=VARCHAR}, #{FS,jdbcType=VARCHAR}, 
+      #{TEST_COM_TM,jdbcType=TIMESTAMP}, #{TS,jdbcType=TIMESTAMP}, #{ISSEND,jdbcType=INTEGER}, 
+      #{NT,jdbcType=LONGVARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_WBHP_D">
     update gs_wbhp_d
     set TW_CD = #{TW_CD,jdbcType=VARCHAR},
+      SPT = #{SPT,jdbcType=TIMESTAMP},
       AD_CD = #{AD_CD,jdbcType=CHAR},
       TYPE = #{TYPE,jdbcType=CHAR},
       ST_TP = #{ST_TP,jdbcType=CHAR},
@@ -48,17 +50,17 @@
       TS = #{TS,jdbcType=TIMESTAMP},
       ISSEND = #{ISSEND,jdbcType=INTEGER},
       NT = #{NT,jdbcType=LONGVARCHAR}
-    where SPT = #{SPT,jdbcType=TIMESTAMP}
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.util.Date" resultMap="BaseResultMap">
-    select SPT, TW_CD, AD_CD, TYPE, ST_TP, BCTC, TCG, FCG, FAG, FS, TEST_COM_TM, TS, 
-    ISSEND, NT
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select RP_CD, TW_CD, SPT, AD_CD, TYPE, ST_TP, BCTC, TCG, FCG, FAG, FS, TEST_COM_TM, 
+    TS, ISSEND, NT
     from gs_wbhp_d
-    where SPT = #{SPT,jdbcType=TIMESTAMP}
+    where RP_CD = #{RP_CD,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SPT, TW_CD, AD_CD, TYPE, ST_TP, BCTC, TCG, FCG, FAG, FS, TEST_COM_TM, TS, 
-    ISSEND, NT
+    select RP_CD, TW_CD, SPT, AD_CD, TYPE, ST_TP, BCTC, TCG, FCG, FAG, FS, TEST_COM_TM, 
+    TS, ISSEND, NT
     from gs_wbhp_d
   </select>
 </mapper>

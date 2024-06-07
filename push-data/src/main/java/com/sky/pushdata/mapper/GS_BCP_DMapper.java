@@ -1,16 +1,14 @@
 package com.sky.pushdata.mapper;
 
 import com.sky.pushdata.pojo.GS_BCP_D;
-import java.util.Date;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface GS_BCP_DMapper {
-    int deleteByPrimaryKey(@Param("RP_CD") String RP_CD, @Param("SPT") Date SPT);
+    int deleteByPrimaryKey(String RP_CD);
 
     int insert(GS_BCP_D row);
 
-    GS_BCP_D selectByPrimaryKey(@Param("RP_CD") String RP_CD, @Param("SPT") Date SPT);
+    GS_BCP_D selectByPrimaryKey(String RP_CD);
 
     List<GS_BCP_D> selectAll();
 

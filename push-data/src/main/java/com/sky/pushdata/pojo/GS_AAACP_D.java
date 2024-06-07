@@ -5,9 +5,9 @@ import java.util.Date;
 public class GS_AAACP_D {
     private String RP_CD;
 
-    private Date SPT;
-
     private String TW_CD;
+
+    private Date SPT;
 
     private String AD_CD;
 
@@ -71,20 +71,20 @@ public class GS_AAACP_D {
         this.RP_CD = RP_CD == null ? null : RP_CD.trim();
     }
 
-    public Date getSPT() {
-        return SPT;
-    }
-
-    public void setSPT(Date SPT) {
-        this.SPT = SPT;
-    }
-
     public String getTW_CD() {
         return TW_CD;
     }
 
     public void setTW_CD(String TW_CD) {
         this.TW_CD = TW_CD == null ? null : TW_CD.trim();
+    }
+
+    public Date getSPT() {
+        return SPT;
+    }
+
+    public void setSPT(Date SPT) {
+        this.SPT = SPT;
     }
 
     public String getAD_CD() {
