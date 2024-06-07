@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+
 @Service
 public class DataServiceController {
 
@@ -34,31 +35,27 @@ public class DataServiceController {
     @Resource
     private GS_TW_WService gsTwWService;
 
-    //GS_MP_D
     @Resource
     private GS_MP_DService gsMpDService;
 
-    //GS_MPWM_D
     @Resource
     private GS_MPWM_DService gsMpwmDService;
+
     @Resource
     private GS_AWQMD_DService gsAwqmdDService;
 
-    //GS_PCP_D
     @Resource
     private GS_PCP_DService gsPcpDService;
 
-    //GS_NMISP_D
     @Resource
     private GS_NMISP_DService gsNmispDService;
 
-    //GS_MISP_D
     @Resource
     private GS_MISP_DService gsMispDService;
 
-    //GS_PHNCP_D
     @Resource
     private GS_PHNCP_DService gsPhncpDService;
+
     @Resource
     private GS_OPCP_DService gsOpcpDService;
 
@@ -70,6 +67,7 @@ public class DataServiceController {
 
     @Resource
     private GS_MOOOP_DService gsMooopDService;
+
     @Resource
     private GS_WBHP_DService gsWbhpDService;
 
