@@ -1,8 +1,10 @@
 package com.sky.pushdata.mapper;
 
 import com.sky.pushdata.pojo.GS_AT_W;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+@Mapper
 public interface GS_AT_WMapper {
     int deleteByPrimaryKey(String ATN);
 

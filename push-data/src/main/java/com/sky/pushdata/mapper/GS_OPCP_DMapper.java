@@ -1,8 +1,10 @@
 package com.sky.pushdata.mapper;
 
 import com.sky.pushdata.pojo.GS_OPCP_D;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+@Mapper
 public interface GS_OPCP_DMapper {
     int deleteByPrimaryKey(String RP_CD);
 

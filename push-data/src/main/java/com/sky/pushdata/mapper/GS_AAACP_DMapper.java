@@ -1,8 +1,11 @@
 package com.sky.pushdata.mapper;
 
 import com.sky.pushdata.pojo.GS_AAACP_D;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
+@Mapper
 public interface GS_AAACP_DMapper {
     int deleteByPrimaryKey(String RP_CD);
 

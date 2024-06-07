@@ -1,9 +1,13 @@
 package com.sky.pushdata.mapper;
 
 import com.sky.pushdata.pojo.GS_AT_D;
+
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface GS_AT_DMapper {
     int deleteByPrimaryKey(@Param("TW_CD") String TW_CD, @Param("BDATE") String BDATE, @Param("ATN") String ATN);
 

@@ -1,8 +1,10 @@
 package com.sky.pushdata.mapper;
 
 import com.sky.pushdata.pojo.GS_USER_B;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+@Mapper
 public interface GS_USER_BMapper {
     int deleteByPrimaryKey(String ID);
 
