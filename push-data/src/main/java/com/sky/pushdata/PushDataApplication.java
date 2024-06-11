@@ -9,5 +9,4 @@ public class PushDataApplication {
     public static void main(String[] args) {
         SpringApplication.run(PushDataApplication.class, args);
     }
-
 }

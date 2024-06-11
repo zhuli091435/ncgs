@@ -6,6 +6,8 @@ import com.sky.pushdata.service.GS_STAT_BService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GS_STAT_BServiceImpl implements GS_STAT_BService {
 
@@ -25,5 +27,10 @@ public class GS_STAT_BServiceImpl implements GS_STAT_BService {
     @Override
     public int add(GS_STAT_B item) {
         return gsStatBMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_STAT_B> getAll() {
+        return gsStatBMapper.selectAll();
     }
 }

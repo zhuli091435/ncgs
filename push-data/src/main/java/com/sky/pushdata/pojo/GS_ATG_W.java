@@ -1,7 +1,9 @@
 package com.sky.pushdata.pojo;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
+import java.util.Date;
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE)
 public class GS_ATG_W {
     private String TW_CD;
 

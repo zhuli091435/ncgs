@@ -1,8 +1,10 @@
 package com.sky.pushdata.pojo;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import java.math.BigDecimal;
 import java.util.Date;
-
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE)
 public class GS_TW_W {
     private String TW_CD;
 

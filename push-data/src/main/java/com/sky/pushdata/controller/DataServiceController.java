@@ -10,9 +10,12 @@ import com.sky.pushdata.pojo.*;
 import com.sky.pushdata.service.*;
 import jakarta.annotation.Resource;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.Date;
@@ -20,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-@Service
+@RestController
 public class DataServiceController {
 
     @Resource
@@ -84,7 +87,7 @@ public class DataServiceController {
             switch (tableName) {
                 case "GS_STAT_B":
                     //1.3测站基本信息表
-                    handleGS_STAT_B(content);
+                    //handleGS_STAT_B(content);
                     break;
                 case "GS_AT_W":
                     //1.4用水户基础信息表
@@ -1092,11 +1095,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_STAT_B(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_stat_b")
+    private HashMap<String, Object> handleGS_STAT_B(@RequestBody List<GS_STAT_B> list) throws JsonProcessingException {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_STAT_B.class);
-        List<GS_STAT_B> list = objectMapper.readValue(content, javaType);
         for (GS_STAT_B item : list) {
             if (item.getSTCD() == null || item.getSTCD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -1138,8 +1139,14 @@ public class DataServiceController {
                 gsStatBService.add(item);
             }
         }
+
         stringObjectHashMap.put("code", 0);
         stringObjectHashMap.put("message", "");
         return stringObjectHashMap;
+    }
+
+    @RequestMapping("/query/gs_stat_b")
+    public List<GS_STAT_B> getGS_STAT_B() {
+        return gsStatBService.getAll();
     }
 }
