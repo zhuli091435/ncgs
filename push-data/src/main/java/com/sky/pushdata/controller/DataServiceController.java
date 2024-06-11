@@ -80,97 +80,9 @@ public class DataServiceController {
     @Resource
     private GS_AT_DService gsAtDService;
 
-    @RequestMapping("/push/data")
-    public void pushData(String content, String tableName) {
-
-        try {
-            switch (tableName) {
-                case "GS_STAT_B":
-                    //1.3测站基本信息表
-                    //handleGS_STAT_B(content);
-                    break;
-                case "GS_AT_W":
-                    //1.4用水户基础信息表
-                    handleGS_AT_W(content);
-                    break;
-                case "GS_USER_B":
-                    //1.6监管用户基础信息表
-                    handleGS_USER_B(content);
-                    break;
-                case "GS_TW_W":
-                    //2.1自来水公司每日水量数据表
-                    handleGS_TW_W(content);
-                    break;
-                case "GS_MP_D":
-                    //2.2测站水量自动监测表
-                    handleGS_MP_D(content);
-                    break;
-                case "GS_MPWM_D":
-                    //2.3测站水压自动监测表
-                    handleGS_MPWM_D(content);
-                    break;
-                case "GS_AWQMD_D":
-                    //2.4测站水质自动监测表
-                    handleGS_AWQMD_D(content);
-                    break;
-                case "GS_PCP_D":
-                    //2.5水质抽检理化指标项目数据表
-                    handleGS_PCP_D(content);
-                    break;
-                case "GS_NMISP_D":
-                    //2.6水质抽检非金属无机物检测项目数据表
-                    handleGS_NMISP_D(content);
-                    break;
-                case "GS_MISP_D":
-                    //2.7 水质抽检金属无机物检测项目数据表
-                    handleGS_MISP_D(content);
-                    break;
-                case "GS_PHNCP_D":
-                    //2.8 水质抽检酚类有机物检测项目数据表
-                    handleGS_PHNCP_D(content);
-                    break;
-                case "GS_OPCP_D":
-                    //2.9 水质抽检有机农药类检测项目数据表
-                    handleGS_OPCP_D(content);
-                    break;
-                case "GS_BCP_D":
-                    //2.10 水质抽检苯类有机物检测项目数据表
-                    handleGS_BCP_D(content);
-                    break;
-                case "GS_AAACP_D":
-                    //2.11 水质抽检卤代烷醛胺类有机物检测项目数据表
-                    handleGS_AAACP_D(content);
-                    break;
-                case "GS_MOOOP_D":
-                    //2.12 水质抽检金属有机物及其他有机物检测项目数据表
-                    handleGS_MOOOP_D(content);
-                    break;
-                case "GS_WBHP_D":
-                    //2.13 水质抽检水体卫生检测项目数据表
-                    handleGS_WBHP_D(content);
-                    break;
-                case "GS_ATG_W":
-                    //2.14停水公告数据表
-                    handleGS_ATG_W(content);
-                    break;
-                case "GS_AT_D":
-                    //2.15用水户用水信息数据表
-                    handleGS_AT_D(content);
-                    break;
-            }
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-    }
-
-    private HashMap<String, Object> handleGS_AT_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_at_d")
+    public HashMap<String, Object> handleGS_AT_D(@RequestBody List<GS_AT_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_AT_D.class);
-        List<GS_AT_D> list = objectMapper.readValue(content, javaType);
         for (GS_AT_D item : list) {
 
 
@@ -225,14 +137,10 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_ATG_W(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_atg_w")
+    public HashMap<String, Object> handleGS_ATG_W(@RequestBody List<GS_ATG_W> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_ATG_W.class);
-        List<GS_ATG_W> list = objectMapper.readValue(content, javaType);
         for (GS_ATG_W item : list) {
-
-
             if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
                 stringObjectHashMap.put("message", "TW_CD不能为空");
@@ -272,11 +180,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_WBHP_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_wbhp_d")
+    public HashMap<String, Object> handleGS_WBHP_D(@RequestBody List<GS_WBHP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_WBHP_D.class);
-        List<GS_WBHP_D> list = objectMapper.readValue(content, javaType);
         for (GS_WBHP_D item : list) {
             if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -330,11 +236,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_MOOOP_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_mooop_d")
+    public HashMap<String, Object> handleGS_MOOOP_D(@RequestBody List<GS_MOOOP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_MOOOP_D.class);
-        List<GS_MOOOP_D> list = objectMapper.readValue(content, javaType);
         for (GS_MOOOP_D item : list) {
             if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -388,11 +292,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_AAACP_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_aaacp_d")
+    public HashMap<String, Object> handleGS_AAACP_D(@RequestBody List<GS_AAACP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_AAACP_D.class);
-        List<GS_AAACP_D> list = objectMapper.readValue(content, javaType);
         for (GS_AAACP_D item : list) {
             if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -446,11 +348,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_BCP_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_bcp_d")
+    public HashMap<String, Object> handleGS_BCP_D(@RequestBody List<GS_BCP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_BCP_D.class);
-        List<GS_BCP_D> list = objectMapper.readValue(content, javaType);
         for (GS_BCP_D item : list) {
             if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -504,11 +404,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_OPCP_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_opcp_d")
+    public HashMap<String, Object> handleGS_OPCP_D(@RequestBody List<GS_OPCP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_OPCP_D.class);
-        List<GS_OPCP_D> list = objectMapper.readValue(content, javaType);
         for (GS_OPCP_D item : list) {
             if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -562,11 +460,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_PHNCP_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_phncp_d")
+    public HashMap<String, Object> handleGS_PHNCP_D(@RequestBody List<GS_PHNCP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_PHNCP_D.class);
-        List<GS_PHNCP_D> list = objectMapper.readValue(content, javaType);
         for (GS_PHNCP_D item : list) {
             if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -620,11 +516,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_MISP_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_misp_d")
+    public HashMap<String, Object> handleGS_MISP_D(@RequestBody List<GS_MISP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_MISP_D.class);
-        List<GS_MISP_D> list = objectMapper.readValue(content, javaType);
         for (GS_MISP_D item : list) {
             if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -678,11 +572,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_NMISP_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_nmisp_d")
+    public HashMap<String, Object> handleGS_NMISP_D(@RequestBody List<GS_NMISP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_NMISP_D.class);
-        List<GS_NMISP_D> list = objectMapper.readValue(content, javaType);
         for (GS_NMISP_D item : list) {
             if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -736,11 +628,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_PCP_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_pcp_d")
+    public HashMap<String, Object> handleGS_PCP_D(@RequestBody List<GS_PCP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_PCP_D.class);
-        List<GS_PCP_D> list = objectMapper.readValue(content, javaType);
         for (GS_PCP_D item : list) {
             if (item.getRP_CD() == null || item.getRP_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -812,11 +702,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_AWQMD_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_awqmd_d")
+    public HashMap<String, Object> handleGS_AWQMD_D(@RequestBody List<GS_AWQMD_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_AWQMD_D.class);
-        List<GS_AWQMD_D> list = objectMapper.readValue(content, javaType);
         for (GS_AWQMD_D item : list) {
             if (item.getSTCD() == null || item.getSTCD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -857,11 +745,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_MPWM_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_mpwm_d")
+    public HashMap<String, Object> handleGS_MPWM_D(@RequestBody List<GS_MPWM_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_MPWM_D.class);
-        List<GS_MPWM_D> list = objectMapper.readValue(content, javaType);
         for (GS_MPWM_D item : list) {
             if (item.getSTCD() == null || item.getSTCD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -902,11 +788,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_MP_D(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_mp_d")
+    public HashMap<String, Object> handleGS_MP_D(@RequestBody List<GS_MP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_MP_D.class);
-        List<GS_MP_D> list = objectMapper.readValue(content, javaType);
         for (GS_MP_D item : list) {
             if (item.getSTCD() == null || item.getSTCD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -954,11 +838,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_TW_W(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_tw_w")
+    public HashMap<String, Object> handleGS_TW_W(@RequestBody List<GS_TW_W> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_TW_W.class);
-        List<GS_TW_W> list = objectMapper.readValue(content, javaType);
         for (GS_TW_W item : list) {
             if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -966,7 +848,7 @@ public class DataServiceController {
                 return stringObjectHashMap;
             }
 
-            if (item.getTM() == null || item.getTM().equals("")) {
+            if (item.getTM() == null) {
                 stringObjectHashMap.put("code", 1);
                 stringObjectHashMap.put("message", "USER不能为空");
                 return stringObjectHashMap;
@@ -993,11 +875,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_USER_B(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_user_b")
+    public HashMap<String, Object> handleGS_USER_B(@RequestBody List<GS_USER_B> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_USER_B.class);
-        List<GS_USER_B> list = objectMapper.readValue(content, javaType);
         for (GS_USER_B item : list) {
             if (item.getID() == null || item.getID().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -1050,11 +930,9 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
-    private HashMap<String, Object> handleGS_AT_W(String content) throws JsonProcessingException {
+    @RequestMapping("/push/gs_at_w")
+    public HashMap<String, Object> handleGS_AT_W(@RequestBody List<GS_AT_W> list) throws JsonProcessingException {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, GS_AT_W.class);
-        List<GS_AT_W> list = objectMapper.readValue(content, javaType);
         for (GS_AT_W item : list) {
             if (item.getATN() == null || item.getATN().equals("")) {
                 stringObjectHashMap.put("code", 1);
@@ -1096,7 +974,7 @@ public class DataServiceController {
     }
 
     @RequestMapping("/push/gs_stat_b")
-    private HashMap<String, Object> handleGS_STAT_B(@RequestBody List<GS_STAT_B> list) throws JsonProcessingException {
+    public HashMap<String, Object> handleGS_STAT_B(@RequestBody List<GS_STAT_B> list) throws JsonProcessingException {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
         for (GS_STAT_B item : list) {
             if (item.getSTCD() == null || item.getSTCD().equals("")) {
