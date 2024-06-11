@@ -196,6 +196,13 @@ public class DataServiceController {
                 return stringObjectHashMap;
             }
 
+            GS_PCP_D gsPcpD = gsPcpDService.getByPrimaryKey(item.getRP_CD());
+            if (!(gsPcpD != null && gsPcpD.getTW_CD().equals(item.getTW_CD()))) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不存在");
+                return stringObjectHashMap;
+            }
+
             if (item.getSPT() == null) {
                 stringObjectHashMap.put("code", 1);
                 stringObjectHashMap.put("message", "SPT不能为空");
@@ -249,6 +256,13 @@ public class DataServiceController {
             if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
                 stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            GS_PCP_D gsPcpD = gsPcpDService.getByPrimaryKey(item.getRP_CD());
+            if (!(gsPcpD != null && gsPcpD.getTW_CD().equals(item.getTW_CD()))) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不存在");
                 return stringObjectHashMap;
             }
 
@@ -308,6 +322,13 @@ public class DataServiceController {
                 return stringObjectHashMap;
             }
 
+            GS_PCP_D gsPcpD = gsPcpDService.getByPrimaryKey(item.getRP_CD());
+            if (!(gsPcpD != null && gsPcpD.getTW_CD().equals(item.getTW_CD()))) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不存在");
+                return stringObjectHashMap;
+            }
+
             if (item.getSPT() == null) {
                 stringObjectHashMap.put("code", 1);
                 stringObjectHashMap.put("message", "SPT不能为空");
@@ -361,6 +382,13 @@ public class DataServiceController {
             if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
                 stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            GS_PCP_D gsPcpD = gsPcpDService.getByPrimaryKey(item.getRP_CD());
+            if (!(gsPcpD != null && gsPcpD.getTW_CD().equals(item.getTW_CD()))) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不存在");
                 return stringObjectHashMap;
             }
 
@@ -420,6 +448,13 @@ public class DataServiceController {
                 return stringObjectHashMap;
             }
 
+            GS_PCP_D gsPcpD = gsPcpDService.getByPrimaryKey(item.getRP_CD());
+            if (!(gsPcpD != null && gsPcpD.getTW_CD().equals(item.getTW_CD()))) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不存在");
+                return stringObjectHashMap;
+            }
+
             if (item.getSPT() == null) {
                 stringObjectHashMap.put("code", 1);
                 stringObjectHashMap.put("message", "SPT不能为空");
@@ -473,6 +508,13 @@ public class DataServiceController {
             if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
                 stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            GS_PCP_D gsPcpD = gsPcpDService.getByPrimaryKey(item.getRP_CD());
+            if (!(gsPcpD != null && gsPcpD.getTW_CD().equals(item.getTW_CD()))) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不存在");
                 return stringObjectHashMap;
             }
 
@@ -532,6 +574,13 @@ public class DataServiceController {
                 return stringObjectHashMap;
             }
 
+            GS_PCP_D gsPcpD = gsPcpDService.getByPrimaryKey(item.getRP_CD());
+            if (!(gsPcpD != null && gsPcpD.getTW_CD().equals(item.getTW_CD()))) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不存在");
+                return stringObjectHashMap;
+            }
+
             if (item.getSPT() == null) {
                 stringObjectHashMap.put("code", 1);
                 stringObjectHashMap.put("message", "SPT不能为空");
@@ -572,6 +621,7 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    //2.6水质抽检非金属无机物检测项目数据表
     @RequestMapping("/push/gs_nmisp_d")
     public HashMap<String, Object> handleGS_NMISP_D(@RequestBody List<GS_NMISP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
@@ -582,9 +632,17 @@ public class DataServiceController {
                 return stringObjectHashMap;
             }
 
+
             if (item.getTW_CD() == null || item.getTW_CD().equals("")) {
                 stringObjectHashMap.put("code", 1);
                 stringObjectHashMap.put("message", "TW_CD不能为空");
+                return stringObjectHashMap;
+            }
+
+            GS_PCP_D gsPcpD = gsPcpDService.getByPrimaryKey(item.getRP_CD());
+            if (!(gsPcpD != null && gsPcpD.getTW_CD().equals(item.getTW_CD()))) {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "RP_CD不存在");
                 return stringObjectHashMap;
             }
 
@@ -628,6 +686,7 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    //2.5水质抽检理化指标项目数据表
     @RequestMapping("/push/gs_pcp_d")
     public HashMap<String, Object> handleGS_PCP_D(@RequestBody List<GS_PCP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();

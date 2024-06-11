@@ -70,25 +70,25 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
-                <!--插件的GAV坐标-->
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.4.1</version>
-                <!--允许覆盖-->
-                <configuration>
-                    <overwrite>true</overwrite>
-                </configuration>
-                <!--插件的依赖-->
-                <dependencies>
-                    <!--mysql驱动依赖-->
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>8.0.30</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+<!--            <plugin>-->
+            <!--                &lt;!&ndash;插件的GAV坐标&ndash;&gt;-->
+            <!--                <groupId>org.mybatis.generator</groupId>-->
+            <!--                <artifactId>mybatis-generator-maven-plugin</artifactId>-->
+            <!--                <version>1.4.1</version>-->
+            <!--                &lt;!&ndash;允许覆盖&ndash;&gt;-->
+            <!--                <configuration>-->
+            <!--                    <overwrite>true</overwrite>-->
+            <!--                </configuration>-->
+            <!--                &lt;!&ndash;插件的依赖&ndash;&gt;-->
+            <!--                <dependencies>-->
+            <!--                    &lt;!&ndash;mysql驱动依赖&ndash;&gt;-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>mysql</groupId>-->
+            <!--                        <artifactId>mysql-connector-java</artifactId>-->
+            <!--                        <version>8.0.30</version>-->
+            <!--                    </dependency>-->
+            <!--                </dependencies>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
 
