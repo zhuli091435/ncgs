@@ -7,6 +7,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class GS_MP_DServiceImpl implements GS_MP_DService {
@@ -26,5 +27,10 @@ public class GS_MP_DServiceImpl implements GS_MP_DService {
     @Override
     public int add(GS_MP_D item) {
         return gsMpDMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_MP_D> getAll() {
+        return gsMpDMapper.selectAll();
     }
 }

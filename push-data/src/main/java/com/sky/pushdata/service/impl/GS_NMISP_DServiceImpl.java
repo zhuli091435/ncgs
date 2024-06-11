@@ -6,6 +6,8 @@ import com.sky.pushdata.service.GS_NMISP_DService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GS_NMISP_DServiceImpl implements GS_NMISP_DService {
     @Resource
@@ -24,5 +26,10 @@ public class GS_NMISP_DServiceImpl implements GS_NMISP_DService {
     @Override
     public int add(GS_NMISP_D item) {
         return gsNmispDMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_NMISP_D> getAll() {
+        return gsNmispDMapper.selectAll();
     }
 }

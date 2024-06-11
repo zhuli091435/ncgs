@@ -1,8 +1,0 @@
-spring:
-  datasource:
-    password: MiaoFu2012
-    username: root
-    url: jdbc:mysql://192.168.0.106:3306/ncgs2
-    driver-class-name: com.mysql.cj.jdbc.Driver
-server:
-  port: 8080

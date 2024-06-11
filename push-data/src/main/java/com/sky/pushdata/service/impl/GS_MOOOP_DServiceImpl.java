@@ -6,6 +6,8 @@ import com.sky.pushdata.service.GS_MOOOP_DService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GS_MOOOP_DServiceImpl implements GS_MOOOP_DService {
     @Resource
@@ -24,5 +26,10 @@ public class GS_MOOOP_DServiceImpl implements GS_MOOOP_DService {
     @Override
     public int add(GS_MOOOP_D item) {
         return gsMooopDMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_MOOOP_D> getAll() {
+        return gsMooopDMapper.selectAll();
     }
 }

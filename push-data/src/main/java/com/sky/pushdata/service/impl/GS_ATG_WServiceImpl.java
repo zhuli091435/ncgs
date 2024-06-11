@@ -7,6 +7,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class GS_ATG_WServiceImpl implements GS_ATG_WService {
@@ -21,11 +22,16 @@ public class GS_ATG_WServiceImpl implements GS_ATG_WService {
 
     @Override
     public int modifyByPrimaryKey(GS_ATG_W item) {
-        return 0;
+        return gsAtgWMapper.updateByPrimaryKey(item);
     }
 
     @Override
     public int add(GS_ATG_W item) {
-        return 0;
+        return gsAtgWMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_ATG_W> getAll() {
+        return gsAtgWMapper.selectAll();
     }
 }

@@ -6,6 +6,8 @@ import com.sky.pushdata.service.GS_PHNCP_DService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GS_PHNCP_DServiceImpl implements GS_PHNCP_DService {
     @Resource
@@ -24,5 +26,10 @@ public class GS_PHNCP_DServiceImpl implements GS_PHNCP_DService {
     @Override
     public int add(GS_PHNCP_D item) {
         return gsPhncpDMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_PHNCP_D> getAll() {
+        return gsPhncpDMapper.selectAll();
     }
 }

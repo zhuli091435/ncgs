@@ -137,6 +137,11 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    @RequestMapping("/query/gs_at_d")
+    public List<GS_AT_D> getGS_AT_D() {
+        return gsAtDService.getAll();
+    }
+
     @RequestMapping("/push/gs_atg_w")
     public HashMap<String, Object> handleGS_ATG_W(@RequestBody List<GS_ATG_W> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
@@ -178,6 +183,11 @@ public class DataServiceController {
         stringObjectHashMap.put("code", 0);
         stringObjectHashMap.put("message", "");
         return stringObjectHashMap;
+    }
+
+    @RequestMapping("/query/gs_atg_w")
+    public List<GS_ATG_W> getGS_ATG_W() {
+        return gsAtgWService.getAll();
     }
 
     @RequestMapping("/push/gs_wbhp_d")
@@ -243,6 +253,11 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    @RequestMapping("/query/gs_wbhp_d")
+    public List<GS_WBHP_D> getGS_WBHP_D() {
+        return gsWbhpDService.getAll();
+    }
+
     @RequestMapping("/push/gs_mooop_d")
     public HashMap<String, Object> handleGS_MOOOP_D(@RequestBody List<GS_MOOOP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
@@ -304,6 +319,11 @@ public class DataServiceController {
         stringObjectHashMap.put("code", 0);
         stringObjectHashMap.put("message", "");
         return stringObjectHashMap;
+    }
+
+    @RequestMapping("/query/gs_mooop_d")
+    public List<GS_MOOOP_D> getGS_MOOOP_D() {
+        return gsMooopDService.getAll();
     }
 
     @RequestMapping("/push/gs_aaacp_d")
@@ -369,6 +389,11 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    @RequestMapping("/query/gs_aaacp_d")
+    public List<GS_AAACP_D> getGS_AAACP_D() {
+        return gsAaacpDService.getAll();
+    }
+
     @RequestMapping("/push/gs_bcp_d")
     public HashMap<String, Object> handleGS_BCP_D(@RequestBody List<GS_BCP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
@@ -430,6 +455,11 @@ public class DataServiceController {
         stringObjectHashMap.put("code", 0);
         stringObjectHashMap.put("message", "");
         return stringObjectHashMap;
+    }
+
+    @RequestMapping("/query/gs_bcp_d")
+    public List<GS_BCP_D> getGS_BCP_D() {
+        return gsBcpDService.getAll();
     }
 
     @RequestMapping("/push/gs_opcp_d")
@@ -495,6 +525,11 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    @RequestMapping("/query/gs_opcp_d")
+    public List<GS_OPCP_D> getGS_OPCP_D() {
+        return gsOpcpDService.getAll();
+    }
+
     @RequestMapping("/push/gs_phncp_d")
     public HashMap<String, Object> handleGS_PHNCP_D(@RequestBody List<GS_PHNCP_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
@@ -556,6 +591,11 @@ public class DataServiceController {
         stringObjectHashMap.put("code", 0);
         stringObjectHashMap.put("message", "");
         return stringObjectHashMap;
+    }
+
+    @RequestMapping("/query/gs_phncp_d")
+    public List<GS_PHNCP_D> getGS_PHNCP_D() {
+        return gsPhncpDService.getAll();
     }
 
     @RequestMapping("/push/gs_misp_d")
@@ -621,6 +661,11 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    @RequestMapping("/query/gs_misp_d")
+    public List<GS_MISP_D> getGS_MISP_D() {
+        return gsMispDService.getAll();
+    }
+
     //2.6水质抽检非金属无机物检测项目数据表
     @RequestMapping("/push/gs_nmisp_d")
     public HashMap<String, Object> handleGS_NMISP_D(@RequestBody List<GS_NMISP_D> list) {
@@ -684,6 +729,11 @@ public class DataServiceController {
         stringObjectHashMap.put("code", 0);
         stringObjectHashMap.put("message", "");
         return stringObjectHashMap;
+    }
+
+    @RequestMapping("/query/gs_nmisp_d")
+    public List<GS_NMISP_D> getGS_NMISP_D() {
+        return gsNmispDService.getAll();
     }
 
     //2.5水质抽检理化指标项目数据表
@@ -761,6 +811,11 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    @RequestMapping("/query/gs_pcp_d")
+    public List<GS_PCP_D> getGS_PCP_D() {
+        return gsPcpDService.getAll();
+    }
+
     @RequestMapping("/push/gs_awqmd_d")
     public HashMap<String, Object> handleGS_AWQMD_D(@RequestBody List<GS_AWQMD_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
@@ -804,6 +859,12 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    @RequestMapping("/query/gs_awqmd_d")
+    public List<GS_AWQMD_D> getGS_AWQMD_D() {
+        return gsAwqmdDService.getAll();
+    }
+
+
     @RequestMapping("/push/gs_mpwm_d")
     public HashMap<String, Object> handleGS_MPWM_D(@RequestBody List<GS_MPWM_D> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
@@ -845,6 +906,11 @@ public class DataServiceController {
         stringObjectHashMap.put("code", 0);
         stringObjectHashMap.put("message", "");
         return stringObjectHashMap;
+    }
+
+    @RequestMapping("/query/gs_mpwm_d")
+    public List<GS_MPWM_D> getGS_MPWM_D() {
+        return gsMpwmDService.getAll();
     }
 
     @RequestMapping("/push/gs_mp_d")
@@ -897,6 +963,11 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    @RequestMapping("/query/gs_mp_d")
+    public List<GS_MP_D> getGS_MP_D() {
+        return gsMpDService.getAll();
+    }
+
     @RequestMapping("/push/gs_tw_w")
     public HashMap<String, Object> handleGS_TW_W(@RequestBody List<GS_TW_W> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
@@ -932,6 +1003,11 @@ public class DataServiceController {
         stringObjectHashMap.put("code", 0);
         stringObjectHashMap.put("message", "");
         return stringObjectHashMap;
+    }
+
+    @RequestMapping("/query/gs_tw_w")
+    public List<GS_TW_W> getGS_TW_W() {
+        return gsTwWService.getAll();
     }
 
     @RequestMapping("/push/gs_user_b")
@@ -989,6 +1065,11 @@ public class DataServiceController {
         return stringObjectHashMap;
     }
 
+    @RequestMapping("/query/gs_user_b")
+    public List<GS_USER_B> getGS_USER_B() {
+        return gsUserBService.getAll();
+    }
+
     @RequestMapping("/push/gs_at_w")
     public HashMap<String, Object> handleGS_AT_W(@RequestBody List<GS_AT_W> list) throws JsonProcessingException {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
@@ -1030,6 +1111,11 @@ public class DataServiceController {
         stringObjectHashMap.put("code", 0);
         stringObjectHashMap.put("message", "");
         return stringObjectHashMap;
+    }
+
+    @RequestMapping("/query/gs_at_w")
+    public List<GS_AT_W> getGS_AT_W() {
+        return gsAtWService.getAll();
     }
 
     @RequestMapping("/push/gs_stat_b")

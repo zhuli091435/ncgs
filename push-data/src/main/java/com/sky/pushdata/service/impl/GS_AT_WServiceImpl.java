@@ -6,6 +6,8 @@ import com.sky.pushdata.service.GS_AT_WService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GS_AT_WServiceImpl implements GS_AT_WService {
 
@@ -25,5 +27,10 @@ public class GS_AT_WServiceImpl implements GS_AT_WService {
     @Override
     public GS_AT_W getByPrimaryKey(String atn) {
         return gsAtWMapper.selectByPrimaryKey(atn);
+    }
+
+    @Override
+    public List<GS_AT_W> getAll() {
+        return gsAtWMapper.selectAll();
     }
 }

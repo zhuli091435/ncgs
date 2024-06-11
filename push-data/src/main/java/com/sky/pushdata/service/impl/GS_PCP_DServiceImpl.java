@@ -6,6 +6,8 @@ import com.sky.pushdata.service.GS_PCP_DService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GS_PCP_DServiceImpl implements GS_PCP_DService {
     @Resource
@@ -24,5 +26,10 @@ public class GS_PCP_DServiceImpl implements GS_PCP_DService {
     @Override
     public int add(GS_PCP_D item) {
         return gsPcpDMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_PCP_D> getAll() {
+        return gsPcpDMapper.selectAll();
     }
 }

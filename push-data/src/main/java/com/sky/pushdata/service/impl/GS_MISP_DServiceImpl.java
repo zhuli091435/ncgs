@@ -6,6 +6,8 @@ import com.sky.pushdata.service.GS_MISP_DService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GS_MISP_DServiceImpl implements GS_MISP_DService {
 
@@ -25,5 +27,10 @@ public class GS_MISP_DServiceImpl implements GS_MISP_DService {
     @Override
     public int add(GS_MISP_D item) {
         return gsMispDMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_MISP_D> getAll() {
+        return gsMispDMapper.selectAll();
     }
 }

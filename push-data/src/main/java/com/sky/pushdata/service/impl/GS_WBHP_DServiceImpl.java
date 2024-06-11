@@ -7,6 +7,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class GS_WBHP_DServiceImpl implements GS_WBHP_DService {
@@ -27,5 +28,10 @@ public class GS_WBHP_DServiceImpl implements GS_WBHP_DService {
     @Override
     public int add(GS_WBHP_D item) {
         return gsWbhpDMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_WBHP_D> getAll() {
+        return gsWbhpDMapper.selectAll();
     }
 }

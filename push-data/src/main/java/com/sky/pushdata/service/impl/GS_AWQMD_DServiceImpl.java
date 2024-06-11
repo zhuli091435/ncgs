@@ -7,6 +7,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class GS_AWQMD_DServiceImpl implements GS_AWQMD_DService {
@@ -26,5 +27,10 @@ public class GS_AWQMD_DServiceImpl implements GS_AWQMD_DService {
     @Override
     public int add(GS_AWQMD_D item) {
         return gsAwqmdDMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_AWQMD_D> getAll() {
+        return gsAwqmdDMapper.selectAll();
     }
 }

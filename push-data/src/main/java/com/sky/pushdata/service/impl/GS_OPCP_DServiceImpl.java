@@ -6,6 +6,8 @@ import com.sky.pushdata.service.GS_OPCP_DService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GS_OPCP_DServiceImpl implements GS_OPCP_DService {
     @Resource
@@ -24,5 +26,10 @@ public class GS_OPCP_DServiceImpl implements GS_OPCP_DService {
     @Override
     public int add(GS_OPCP_D item) {
         return gsOpcpDMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_OPCP_D> getAll() {
+        return gsOpcpDMapper.selectAll();
     }
 }

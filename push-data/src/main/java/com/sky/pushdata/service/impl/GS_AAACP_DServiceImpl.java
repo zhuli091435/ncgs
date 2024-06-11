@@ -6,6 +6,8 @@ import com.sky.pushdata.service.GS_AAACP_DService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GS_AAACP_DServiceImpl implements GS_AAACP_DService {
 
@@ -25,5 +27,10 @@ public class GS_AAACP_DServiceImpl implements GS_AAACP_DService {
     @Override
     public int add(GS_AAACP_D item) {
         return gsAaacpDMapper.insert(item);
+    }
+
+    @Override
+    public List<GS_AAACP_D> getAll() {
+        return gsAaacpDMapper.selectAll();
     }
 }
