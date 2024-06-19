@@ -22,10 +22,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-
 @RestController
 public class DataServiceController {
 
+    @Resource
+    private GS_TW_BService gs_tw_bService;
     @Resource
     private GS_STAT_BService gsStatBService;
 
@@ -1119,7 +1120,7 @@ public class DataServiceController {
     }
 
     @RequestMapping("/push/gs_stat_b")
-    public HashMap<String, Object> handleGS_STAT_B(@RequestBody List<GS_STAT_B> list) throws JsonProcessingException {
+    public HashMap<String, Object> handleGS_STAT_B(@RequestBody List<GS_STAT_B> list) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
         for (GS_STAT_B item : list) {
             if (item.getSTCD() == null || item.getSTCD().equals("")) {
@@ -1171,5 +1172,28 @@ public class DataServiceController {
     @RequestMapping("/query/gs_stat_b")
     public List<GS_STAT_B> getGS_STAT_B() {
         return gsStatBService.getAll();
+    }
+
+    @RequestMapping("/push/gs_tw_b")
+    public HashMap<String, Object> handleGS_TW_B(@RequestBody List<GS_TW_B> list) {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        for (GS_TW_B item : list) {
+
+            GS_TW_B mode = gs_tw_bService.getByTW_CD(item.getTW_CD());
+            if (mode != null) {
+                gs_tw_bService.modifyByTW_CD(item);
+                stringObjectHashMap.put("code", 0);
+                stringObjectHashMap.put("message", "");
+            } else {
+                stringObjectHashMap.put("code", 1);
+                stringObjectHashMap.put("message", "修改的水厂信息不存在");
+            }
+        }
+        return stringObjectHashMap;
+    }
+
+    @RequestMapping("/query/gs_tw_b")
+    public List<GS_TW_B> getGS_TW_B() {
+        return gs_tw_bService.getAll();
     }
 }

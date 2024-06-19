@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.pushdata.mapper.GS_TW_BMapper">
+    <resultMap id="BaseResultMap" type="com.sky.pushdata.pojo.GS_TW_B">
+        <id column="TW_CD" jdbcType="VARCHAR" property="TW_CD"/>
+        <id column="TWNW" jdbcType="VARCHAR" property="TWNW"/>
+        <result column="AD_CD" jdbcType="CHAR" property="AD_CD"/>
+        <result column="ADDR" jdbcType="VARCHAR" property="ADDR"/>
+        <result column="W_ADDR" jdbcType="VARCHAR" property="w_ADDR"/>
+        <result column="TW_WU" jdbcType="DECIMAL" property="TW_WU"/>
+        <result column="E_MAIL" jdbcType="VARCHAR" property="e_MAIL"/>
+        <result column="REL" jdbcType="VARCHAR" property="REL"/>
+        <result column="TS" jdbcType="TIMESTAMP" property="TS"/>
+        <result column="NT" jdbcType="VARCHAR" property="NT"/>
+        <result column="ISSEND" jdbcType="INTEGER" property="ISSEND"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="map">
+        delete
+        from gs_tw_b
+        where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+          and TWNW = #{TWNW,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.sky.pushdata.pojo.GS_TW_B">
+        insert into gs_tw_b (TW_CD, TWNW, AD_CD,
+                             ADDR, W_ADDR, TW_WU,
+                             E_MAIL, REL, TS,
+                             NT, ISSEND)
+        values (#{TW_CD,jdbcType=VARCHAR}, #{TWNW,jdbcType=VARCHAR}, #{AD_CD,jdbcType=CHAR},
+                #{ADDR,jdbcType=VARCHAR}, #{w_ADDR,jdbcType=VARCHAR}, #{TW_WU,jdbcType=DECIMAL},
+                #{e_MAIL,jdbcType=VARCHAR}, #{REL,jdbcType=VARCHAR}, #{TS,jdbcType=TIMESTAMP},
+                #{NT,jdbcType=VARCHAR}, #{ISSEND,jdbcType=INTEGER})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.sky.pushdata.pojo.GS_TW_B">
+        update gs_tw_b
+        set AD_CD  = #{AD_CD,jdbcType=CHAR},
+            ADDR   = #{ADDR,jdbcType=VARCHAR},
+            W_ADDR = #{w_ADDR,jdbcType=VARCHAR},
+            TW_WU  = #{TW_WU,jdbcType=DECIMAL},
+            E_MAIL = #{e_MAIL,jdbcType=VARCHAR},
+            REL    = #{REL,jdbcType=VARCHAR},
+            TS     = #{TS,jdbcType=TIMESTAMP},
+            NT     = #{NT,jdbcType=VARCHAR},
+            ISSEND = #{ISSEND,jdbcType=INTEGER}
+        where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+          and TWNW = #{TWNW,jdbcType=VARCHAR}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+        select TW_CD,
+               TWNW,
+               AD_CD,
+               ADDR,
+               W_ADDR,
+               TW_WU,
+               E_MAIL,
+               REL,
+               TS,
+               NT,
+               ISSEND
+        from gs_tw_b
+        where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+          and TWNW = #{TWNW,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select TW_CD,
+               TWNW,
+               AD_CD,
+               ADDR,
+               W_ADDR,
+               TW_WU,
+               E_MAIL,
+               REL,
+               TS,
+               NT,
+               ISSEND
+        from gs_tw_b
+    </select>
+    <select id="getByTW_CD" resultMap="BaseResultMap">
+        select TW_CD,
+               TWNW,
+               AD_CD,
+               ADDR,
+               W_ADDR,
+               TW_WU,
+               E_MAIL,
+               REL,
+               TS,
+               NT,
+               ISSEND
+        from gs_tw_b
+        where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+    </select>
+
+    <update id="modifyByTW_CD" parameterType="com.sky.pushdata.pojo.GS_TW_B">
+        update gs_tw_b
+        set TWNW   = #{TWNW,jdbcType=VARCHAR}
+          , AD_CD  = #{AD_CD,jdbcType=CHAR}
+          , ADDR   = #{ADDR,jdbcType=VARCHAR}
+          , W_ADDR = #{w_ADDR,jdbcType=VARCHAR}
+          , TW_WU  = #{TW_WU,jdbcType=DECIMAL}
+          , E_MAIL = #{e_MAIL,jdbcType=VARCHAR}
+          , REL    = #{REL,jdbcType=VARCHAR}
+          , TS     = #{TS,jdbcType=TIMESTAMP}
+          , NT     = #{NT,jdbcType=VARCHAR}
+        where TW_CD = #{TW_CD,jdbcType=VARCHAR}
+    </update>
+</mapper>

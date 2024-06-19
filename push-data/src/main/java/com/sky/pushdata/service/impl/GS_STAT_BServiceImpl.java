@@ -2,6 +2,7 @@ package com.sky.pushdata.service.impl;
 
 import com.sky.pushdata.mapper.GS_STAT_BMapper;
 import com.sky.pushdata.pojo.GS_STAT_B;
+import com.sky.pushdata.pojo.GS_TW_B;
 import com.sky.pushdata.service.GS_STAT_BService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -33,4 +34,5 @@ public class GS_STAT_BServiceImpl implements GS_STAT_BService {
     public List<GS_STAT_B> getAll() {
         return gsStatBMapper.selectAll();
     }
+
 }
